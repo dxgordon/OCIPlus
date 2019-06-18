@@ -23,6 +23,7 @@ var SupplyCurve = BaseView.extend({
     'click .button-filter, .header-filter': 'handleFilterHide',
     'click': 'hideFilterIfClickOutside',
     'click #ratio-select': 'handleRatioSelect',
+    'change #toggle-gwp': 'handleGWP',
     'change #region-select': function () { this.handleFilter('region-select', 'Region'); },
     'change #oiltype-select': function () { this.handleFilter('oiltype-select', 'Resource Type'); }
   },
@@ -159,11 +160,13 @@ var SupplyCurve = BaseView.extend({
   },
 
   buildDataset: function (data) {
+    // we rely soley on data from info.json, the only toggle is the GWP key
+    const gwp = $('#toggle-gwp').is(':checked') ? 20 : 100;
     // we don't use the globalExtents object for this because we don't precompute perMJ values
     this.yMax = Object.keys(Oci.data.info).reduce((a, o) => {
       const oil = Oci.data.info[o];
       const key = this.yProperty === 'perBarrel' ? 'Total Emissions' : 'Total Emissions (MJ)';
-      return Math.max(a, +oil.gwp100[key]);
+      return Math.max(a, +oil[`gwp${gwp}`][key]);
     }, 0);
 
     const info = Oci.data.info;
@@ -173,7 +176,7 @@ var SupplyCurve = BaseView.extend({
         return accumulator && this.filters[filter].includes(oil[filter]);
       }, true);
     });
-    const gwp = 100;
+
     return Object.keys(filteredOils).map((key) => {
       const oil = filteredOils[key];
       return {
@@ -429,6 +432,10 @@ var SupplyCurve = BaseView.extend({
     ) {
       $('.filter-hideable').addClass('filter-hidden');
     }
+  },
+
+  handleGWP: function () {
+    this.updateChart('y');
   }
 });
 

@@ -67,6 +67,25 @@
             <% }) %>
           </fieldset>
         </div>
+
+        <!-- model-parameters -->
+        <!-- single hardcoded GWP switch, always open -->
+        <div id="model-parameters" class="control-section open">
+          <div class="mp-edit">
+              <div class="param-control icon-gwp">
+                <div class="container-filter_title">
+                  <strong class="param-title">Global Warming Potential</strong>
+                  <span data-title-before="Select whether a 20 or 100 year Global Warming Potential is used to assess impact of non-CO2 emissions" class="icon-information">?</span>
+                </div>
+                 <label class="switch gwp-override" for="toggle-gwp">
+                   <input id="toggle-gwp" type="checkbox" unchecked />
+                   <span class="switch-text">Global Warming Potential</span>
+                   <span class="switch-ui"></span>
+                 </label>
+              </div>
+          </div>
+        </div>
+        <!--/ model-parameters -->
       </div>
 
     </div>
