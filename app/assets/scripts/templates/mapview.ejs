@@ -1,0 +1,71 @@
+<div id="location" class="view">
+
+  <!-- intro -->
+  <section class="intro">
+    <div class="prose prose-centered">
+      <h1>Mapping Oil and Gas Emissions</h1>
+      <p>Total GHG emissions differ by oil and gas resources. The size of each bubble represents the magnitude of the emissions intensity of the oil or gas to which it corresponds. Use this map to view the origin of each resource and its associated GHG emissions, examine satellite-detected flaring and venting of the gas, explore oil and gas field boundaries, and learn about the quality of OCI<sup>+</sup> input data for each supply chain.</p>
+    </div>
+  </section>
+  <!--/ intro -->
+
+  <section class="map-overlay map-flaring">
+    <div id="map" class="main-map"></div>
+    <div class="world-zoom leaflet-bar"></div>
+    <div id="bubble-legend">
+    </div>
+    <div id="methane-legend">
+      <span style='background:#33095e;'></span>
+      <span style='background:#781c6d;'></span>
+      <span style='background:#bb3754;'></span>
+      <span style='background:#ed6925;'></span>
+      <span style='background:#fcb519;'></span>
+      <span style='background:#fcffa4;'></span>
+      <label>0 - 3.32</label>
+      <label>3.32 - 5</label>
+      <label>5 - 6.69</label>
+      <label>6.69 - 8.38</label>
+      <label>8.38 - 10.1</label>
+      <label>> 10.1</label>
+      <p id="methane-legend-text">Methane Emissions in Mg a<sup>-1</sup> km<sup>-2</sup></p>
+    </div>
+    <div class="map-filter filter-map">
+      <div class="control-section">
+        <form>
+          <fieldset id="year-select">
+            <legend class="control-title">Select Year for Flaring Data</legend>
+            <div class="radio">
+              <label><input type="radio" name="year-select" value="2012">2012</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="year-select" value="2013">2013</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="year-select" value="2014">2014</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="year-select" value="2017" checked>2017</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="year-select" value="off">Off</label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="map-filter map-toogle">
+      <div class="control-section">
+        <input type="checkbox" class="toggle-methane" id="methane" name="methane" /> Methane
+      </div>
+    </div>
+    <div class="map-filter map-instructions">
+      <div class="map-filter-container">
+        <span>?</span>
+        <div class="map-tooltip">
+          <p>To navigate the map more quickly, use your keyboard's arrow keys or hold shift and create a square on the map to zoom into that specific area.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%= blueBar %>
+</div>

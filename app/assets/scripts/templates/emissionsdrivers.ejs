@@ -1,0 +1,144 @@
+<div id="emissions-drivers-view" class="view">
+
+  <!-- intro -->
+  <section class="intro intro-drivers">
+    <div class="overlay-dark">
+      <div class="prose prose-centered">
+        <h1 class="prose-prime-title">Analyzing Oil and Gas Data</h1>
+        <p class="copy-feature">Oil and gas characteristics have different effects on GHG emissions. Select a resource from the drop-down menu to plot relationships between GHG emissions and oil and gas characteristics such as heating value, sulfur content, and volume of fuel produced. Then edit the model parameters to see how emissions change.</p>
+      </div>
+      <div class="attribution"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a><a href="https://www.digitalglobe.com/" target="_blank">© DigitalGlobe</a></div>
+    </div>
+  </section>
+  <!--/ intro -->
+
+  <!-- chart-section -->
+  <section class="panel has-aside section-content" id="ed-chart-cont">
+    <div class="row">
+      <header class="panel-header">
+        <div class="panel-headline">
+          <h1 class="panel-title">Chart</h1>
+        </div>
+      </header>
+      <div class="panel-body">
+        <div id="emissions-drivers" class="data-charts"></div>
+      </div>
+      <div class="panel-aside">
+        <div>
+            <div class="control-section">
+              <legend class="control-title">Select Oil and Gas Characteristics (X axis)</legend>
+              <select class="config-dropdown form-control" name="x-select" id="x-select">
+                <option value="ghgPerMJ"> Total Emissions per Megajoule</option>
+                <option value="ghgTotal"> Total Emissions per BOE</option>
+                <option value="upstream"> Upstream Emissions</option>
+                <option value="midstream"> Midstream Emissions</option>
+                <option value="downstream"> Downstream Emissions</option>
+                <option value="methaneFV" selected> Methane Fugitives + Venting</option>
+                <option value="co2FV"> CO<sub>2</sub> Fugitives + Venting</option>
+                <option value="leakage"> Methane Leakage Rate</option>
+                <option value="heatingValue"> Heating Value Processed Oil and Gas</option>
+                <option value="years"> Years in Production</option>
+                <option value="depth"> Field Depth</option>
+                <option value="wells"> Number of Producing Wells</option>
+                <option value="gasRatio"> Gas-to-Oil Ratio</option>
+                <option value="flaringRatio"> Flaring-to-Oil Ratio</option>
+                <option value="steamRatio"> Steam-to-Oil Ratio</option>
+                <option value="apiGravity"> API Gravity</option>
+                <option value="sulfurContent"> Sulfur Content</option>
+                <option value="productionVolume"> 2017 Crude Production Volume</option>
+                <option value="totalProcessed"> Estimated Total Processed Oil, NGLs, and Gas</option>
+                <option value="gasonline"> Gasoline Production</option>
+                <option value="jetFuel"> Jet Fuel Production</option>
+                <option value="diesel"> Diesel Production</option>
+                <option value="fuelOil"> Fuel Oil Production</option>
+                <option value="petcoke"> Petroleum Coke Production</option>
+                <option value="heavyEnds"> Liquid Heavy Ends Production</option>
+                <option value="naturalGas"> Natural Gas Liquids Production</option>
+                <option value="LPG"> Liquefied Petroleum Gases Production</option>
+                <option value="feedstocks"> Petrochemical Feedstocks Production</option>
+                <option value="industryGHG"> Industry GHG Responsibility</option>
+                <option value="consumerGHG"> Consumer GHG Responsibility</option>
+                <option value="methaneco2"> Methane Fugitives + Venting Emissions</option>
+                <option value="flaringco2"> Flaring Emissions</option>
+                <option value="carbonFee10"> $10 per Tonne Carbon Fee</option>
+                <option value="carbonFee40"> $40 per Tonne Carbon Fee</option>
+              </select>
+            </div>
+
+            <div class="control-section">
+              <legend class="control-title">Select Emissions Component (Y axis)</legend>
+              <select class="config-dropdown form-control" name="y-select" id="y-select">
+                <option value="ghgTotal" selected> Total Emissions per BOE</option>
+                <option value="ghgPerMJ"> Total Emissions per Megajoule</option>
+                <option value="upstream"> Upstream Emissions</option>
+                <option value="midstream"> Midstream Emissions</option>
+                <option value="downstream"> Downstream Emissions</option>
+                <option value="methaneFV"> Methane Fugitives + Venting</option>
+                <option value="co2FV"> CO<sub>2</sub> Fugitives + Venting</option>
+                <option value="leakage"> Methane Leakage Rate</option>
+                <option value="heatingValue"> Heating Value Processed Oil and Gas</option>
+                <option value="years"> Years in Production</option>
+                <option value="depth"> Field Depth</option>
+                <option value="wells"> Number of Producing Wells</option>
+                <option value="gasRatio"> Gas-to-Oil Ratio</option>
+                <option value="flaringRatio"> Flaring-to-Oil Ratio</option>
+                <option value="steamRatio"> Steam-to-Oil Ratio</option>
+                <option value="apiGravity"> API Gravity</option>
+                <option value="sulfurContent"> Sulfur Content</option>
+                <option value="productionVolume"> 2017 Crude Production Volume</option>
+                <option value="totalProcessed"> Estimated Total Processed Oil, NGLs, and Gas</option>
+                <option value="gasonline"> Gasoline Production</option>
+                <option value="jetFuel"> Jet Fuel Production</option>
+                <option value="diesel"> Diesel Production</option>
+                <option value="fuelOil"> Fuel Oil Production</option>
+                <option value="petcoke"> Petroleum Coke Production</option>
+                <option value="heavyEnds"> Liquid Heavy Ends Production</option>
+                <option value="naturalGas"> Natural Gas Liquids Production</option>
+                <option value="LPG"> Liquefied Petroleum Gases Production</option>
+                <option value="feedstocks"> Petrochemical Feedstocks Production</option>
+                <option value="industryGHG"> Industry GHG Responsibility</option>
+                <option value="consumerGHG"> Consumer GHG Responsibility</option>
+                <option value="methaneco2"> Methane Fugitives + Venting Emissions</option>
+                <option value="flaringco2"> Flaring Emissions</option>
+                <option value="carbonFee10"> $10 per Tonne Carbon Fee</option>
+                <option value="carbonFee40"> $40 per Tonne Carbon Fee</option>
+              </select>
+            </div>
+
+            <div class="control-section">
+              <fieldset id="oiltype-select">
+                <legend class="control-title">Filter by Resource Type</legend>
+                <% types.forEach(type => { %>
+                  <div class="checkbox">
+                    <span class="swatch"></span>
+                    <label><input type="checkbox" name="oiltype-select" value="<%= type %>"><span class="block-color" style="background-color: <%= getColor(type) %>"></span> <%= type %></label>
+                  </div>
+                <% }) %>
+              </fieldset>
+            </div>
+
+            <!-- model-parameters -->
+            <!-- single hardcoded GWP switch, always open -->
+            <div id="model-parameters" class="control-section open">
+              <div class="mp-edit">
+                  <div class="param-control icon-gwp">
+                    <div class="container-filter_title">
+                      <strong class="param-title">Global Warming Potential</strong>
+                      <span data-title-before="Select whether a 20 or 100 year Global Warming Potential is used to assess impact of non-CO2 emissions" class="icon-information">?</span>
+                    </div>
+                     <label class="switch gwp-override" for="toggle-gwp">
+                       <input id="toggle-gwp" type="checkbox" unchecked />
+                       <span class="switch-text">Global Warming Potential</span>
+                       <span class="switch-ui"></span>
+                     </label>
+                  </div>
+              </div>
+            </div>
+            <!--/ model-parameters -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ chart-section -->
+  <%= blueBar %>
+</div>

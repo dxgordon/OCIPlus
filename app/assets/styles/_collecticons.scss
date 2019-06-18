@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Icon font: Collecticons
+   ========================================================================== */
+
+/**
+ * Designed by Development Seed
+ * https://developmentseed.org/
+ *
+ * Generated with collecticons-processor on June 18th, 2019
+ * http://collecticons.io/
+ */
+
+@font-face {
+  font-family: "Collecticons";
+  src: url(data:application/font-woff2;charset=utf-8;base64,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) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%collecticons,
+[class^="collecticons-"],
+[class*=" collecticons-"] {
+  speak: none;
+  font-family: "Collecticons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better font rendering */
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%collecticons-cog {
+  @extend %collecticons;
+  content: "\F101";
+}
+
+.collecticons-cog:before {
+  content: "\F101";
+}
+
+%collecticons-gauge {
+  @extend %collecticons;
+  content: "\F102";
+}
+
+.collecticons-gauge:before {
+  content: "\F102";
+}
+
+%collecticons-global-warming {
+  @extend %collecticons;
+  content: "\F103";
+}
+
+.collecticons-global-warming:before {
+  content: "\F103";
+}
+
+%collecticons-pipe {
+  @extend %collecticons;
+  content: "\F104";
+}
+
+.collecticons-pipe:before {
+  content: "\F104";
+}
+
+%collecticons-renewable-hydrogen {
+  @extend %collecticons;
+  content: "\F105";
+}
+
+.collecticons-renewable-hydrogen:before {
+  content: "\F105";
+}

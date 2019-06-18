@@ -1,0 +1,25 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: carnegiecomms.6415dbd3
+  rev: s-b42d9747
+  saveCenter: true
+attribution: ''
+center: 
+  - -90
+  - 48.1661
+  - 3
+description: ''
+Layer: 
+  - id: methane-2018
+    Datasource: 
+      file: /Users/ruben/apps/oci-sandbox-methane/data/methane-2018/methane-2018.tif
+      type: gdal
+    description: ''
+    fields: {}
+    properties: 
+      "buffer-size": 0
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 7
+minzoom: 0
+name: methane-2018-source

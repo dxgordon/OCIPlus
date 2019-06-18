@@ -1,0 +1,25 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: carnegiecomms.c7e3e1e4
+  rev: s-e5013e68
+  saveCenter: true
+attribution: ''
+center: 
+  - -67.4561
+  - 4.7407
+  - 4
+description: ''
+Layer: 
+  - id: methane-world-2018-2
+    Datasource: 
+      file: /Users/ruben/apps/oci-sandbox-methane/data/methane-2018/methane-world-2018-2.tif
+      type: gdal
+    description: ''
+    fields: {}
+    properties: 
+      "buffer-size": 0
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 7
+minzoom: 0
+name: methane-world-2018-source-2

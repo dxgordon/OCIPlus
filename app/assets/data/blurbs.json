@@ -1,0 +1,86 @@
+{
+  "U.S. California Midway Sunset": {
+    "description": "A sour, watery oil from the U.S. state of California whose gravities range from medium to extra-heavy. Complex and depleted, Midway Sunset is one of the oldest and largest fields in the San Joaquin Valley and has been in production for over one hundred twenty years. Its GHG emissions are very high due to the large volume of steam injected into the reservoir to loosen and allow oil to flow, and its high water content means that extra energy is required to pump it out of the ground. Midway Sunset’s extra-heavy oil, is one of the OCI&#x207a; oils whose price is tracked and reported monthly. Instead of using an outdated 1978 Knovel assay for Midway Sunset, OCI&#x207a; uses a newer proxy assay. OCI&#x207a; proxy oil assay source: Venezuela Tia Juana, Stratiev (2009)"
+  },
+  "Canada Athabasca DC SCO": {
+    "description": "An extra-heavy, high-sulfur bitumen mined from the Athabasca oil sands in Canada’s Alberta Province that is upgraded into a medium, sweet synthetic crude oil (SCO) before transport to the refinery. A delayed coker (DC) unit, which produces petcoke, is used to upgrade this oil, and high heat is associated with its refining. These processes make Athabasca DC SCO one of the most emission intensive of all current preview oils in the OCI&#x207a; analysis. OCI&#x207a; oil assay source: Suncor Synthetic A, Crude Monitor (2018)"
+  },
+  "Indonesia Duri": {
+    "description": "A heavy, sweet oil that is unusually waxy and located onshore in the central Sumatran basin in Indonesia’s Riau Province. Duri requires large energy inputs to produce steam and inject it into this shallow field to make the oil flow. A significant volume of hydrogen is also required to refine this heavy oil into petroleum products and its high carbon content results in the production of petroleum coke. Duri is located in a carbon-rich forested ecosystem, and elevated GHG emissions are released from the soil and surrounding biomass when sites are developed for drilling. Its overall GHG emissions are among the highest of the preview oils in the OCI&#x207a; analysis. OCI&#x207a; oil assay source: Duri, Chevron (2012)"
+  },
+  "Nigeria Obagi": {
+    "description": "A light, sweet oil that is produced northwest of Port Harcourt in the Niger delta in southern Nigeria. Obagi has high levels of associated gas that contain methane, which are poorly managed and readily leaked. As a result, the oil has high flaring and venting rates that lead to high upstream GHG emissions. Combustion of Obagi’s end-use products contain largely natural gas and NGLs, which contribute to this field’s lower than average downstream emissions. Obagi is one of the OCI&#x207a; fields whose price is tracked and reported monthly. OCI&#x207a; proxy oil assay source: Bonny Light, Chevron (2010)"
+  },
+  "Kuwait Ratawi": {
+    "description": "A medium, extremely sour oil produced from the partitioned neutral zone between Kuwait and Saudi Arabia. Ratawi’s upstream GHG emissions are large, due in part due to flaring its associated gas. This fields’ methane emissions also contribute to greater overall GHG emissions compared to other OCI&#x207a; oils. The field’s overall GHG emissions hover near the average of the oil and gases previewed in the OCI&#x207a; analysis. OCI&#x207a; oil assay source: Ratawi, Chevron (2010)"
+  },
+  "Mexico Chuc": {
+    "description": "A light, sour, ultra-deep oil produced offshore in Mexico’s Bay of Campeche. Chuc is a high-flare oil, and flaring is responsible for over half of Chuc’s upstream emissions. Energy-intensive pumping methods  required to extract this relatively watery oil also contribute to emissions. Chuc (also identified as Isthmus) is one of the OCI&#x207a; oils whose price is tracked and reported monthly. OCI&#x207a; oil assay source: Isthmus, Stratiev (2009)"
+  },
+  "Norway Ekofisk": {
+    "description": "A light, sweet oil produced in the North Sea off Norway’s coast, which, along with UK Forties, is one of the crudes that make up the widely cited Brent benchmark crude basket. Ekofisk’s upstream GHG emissions are low in spite of its moderately high gas-to-oil ratio compared to other OCI&#x207a; oils due to the responsible management of its associated gas and use of renewable hydroelectric power on its offshore rigs. OCI&#x207a; oil assay source: Ekofisk, Equinor (2015)"
+  },
+  "Australia Cossack": {
+    "description": "An ultra-light, sweet oil produced by the North West Shelf Project, offshore near the state of Western Australia. This project is a joint venture of many different companies, including Chevron and BP (whose assay has been used in OCI&#x207a; analysis.) Cossack’s associated gas is generally not flared given the field’s ample infrastructure. The oil’s overall GHG emissions are dominated by combustion of its petroleum products. OCI&#x207a; oil assay source: Cossack, BP (2016)"
+  },
+  "Azerbaijan Azeri Light": {
+    "description": "A light, sweet oil located offshore in the South Caspian basin that is used as a regional benchmark crude and accounts for the majority of Azerbaijan’s total oil output as of 2016. Minimal flaring and low-emitting refining help keep Azeri’s overall GHG emissions low. Azeri has the lowest midstream refining GHGs compared to the other oils in the OCI&#x207a; preview analysis. OCI&#x207a; oil assay source: Azeri, Equinor (2015)"
+  },
+  "Saudi Arabia Ghawar": {
+    "description": "A light, sour oil produced in huge volumes in the Eastern Province of Saudi Arabia. Venting and fugitive methane emissions drive its upstream emissions higher relative to other Saudi oils. However, the crude has relatively low overall GHG emissions compared to other OCI&#x207a; preview oils due to low energy intensity during refining and low end-product combustion emissions. Ghawar is one of the OCI&#x207a; oils whose price is tracked and reported monthly. OCI&#x207a; oil assay source: Arab Light, Stratiev (2009)"
+  },
+  "U.S. Texas Spraberry": {
+    "description": "A light, sweet oil from the Permian basin in oil-rich west Texas, a U.S. state, that has been in production for over seventy years. Given the oil’s high gas-to-oil ratio, combustion and venting of the gas generate most of its upstream GHG emissions. The field’s overall emissions, however, are estimated below the OCI&#x207a; average and are similar to Saudi Gahwar’s overall GHGs. Spraberry (also identified as West Texas Intermediate or WTI) is one of the OCI&#x207a; oils whose price is tracked and reported monthly. OCI&#x207a; oil assay source: West Texas Intermediate, Stratiev (2009)"
+  },
+  "U.S. Texas Eagle Ford Black Oil": {
+    "description": "An ultra-light, sweet oil from the horizontal Eagle Ford shale play in the U.S. state of Texas with production zones ranging from light oils rich to condensates to gas. In the Black Oil production zone, Eagle Ford’s moderate gas-to-oil ratio leads to moderate levels of upstream GHG emissions from venting and fugitive methane. The natural gas produced can be liquefied and exported as liquefied natural gas (LNG) given the location near export terminals. Its overall emissions are the highest of the zones modeled in the Eagle Ford play. OCI&#x207a; oil assay source: Eagle Ford Ultralight, Platts (2013)"
+  },
+  "U.S. Texas Eagle Ford Volatile Oil": {
+    "description": "An ultra-light, sweet oil from the horizontal Eagle Ford shale play in the U.S. state of Texas with production zones ranging from light oils rich to condensates to gas. This Eagle Ford oil zone exists in a gaseous phase while under pressure in the reservoir. The Eagle Ford Volatile Oil, with its high gas-to-oil ratio, contains natural gas produced alongside the oil. This natural gas can be liquefied and exported as liquefied natural gas (LNG). When this field’s gas is not carefully managed, however, flaring, venting, and fugitives contribute significantly to its upstream emissions. OCI&#x207a; oil assay source: Eagle Ford Gen Grade, Equinor (2017)"
+  },
+  "U.S. Wyoming Natural CO2 EOR Example": {
+    "description": "A test oil in the OCI&#x207a; analysis with the potential to be produced in numerous regions by injecting carbon dioxide (CO2) in large volumes, one of many enhanced oil recovery (EOR) techniques. In this case study, a sweet, medium oil with a gravity of 30&#176; API serves as the proxy oil. The CO2 for injection is sourced from natural subsurface reservoirs of which 58 percent of the new CO2 is newly acquired and the remainder is recycled. The high energy intensity of the EOR process results in high upstream GHG emissions for natural CO2 EOR oil fields. OCI&#x207a; proxy oil assay source: Angola Girassol, Equinor (2015)"
+  },
+  "UAE Man-made CO2 EOR Example": {
+    "description": "A test oil in the OCI&#x207a; analysis with the potential to be produced in numerous regions worldwide where carbon dioxide (CO2) is used to enhance oil recovery (EOR). In this case study, a sweet, medium oil with a gravity of 30o API serves as the proxy oil. The CO2 for injection is sourced from anthropogenic (man-made) sources that are recovered from waste flue gases and/or removed from the atmosphere. Anthropogenic sources account 58 percent of the new CO2 and the remainder is recycled. The extremely low overall GHG emissions from oils that employ man-made CO2 EOR result from negative upstream emissions associated with CO2 sequestration that is assumed to be permanently stored in the process. OCI&#x207a; proxy oil assay source: Angola Girassol, Equinor (2015)"
+  },
+  "U.S. Texas Eagle Ford Condensate": {
+    "description": "A gas condensate from the horizontal Eagle Ford shale play in the U.S. state of Texas with production zones ranging from oil to condensate to gas. Eagle Ford Condensate is a gas rich in liquids with almost ten times as much associated gas and natural gas liquids (NGLs) as light Eagle Ford Black Oil. Eagle Ford Condensate has some of the lowest overall GHG emissions in the OCI&#x207a; analysis. OCI&#x207a; oil assay source: Eagle Ford Chem Grade, Equinor (2017)"
+  },
+  "U.S. Texas Eagle Ford Gas": {
+    "description": "A wet gas from the horizontal Eagle Ford shale play in the U.S. state of Texas with production zones accessed through hydraulic fracturing that range from oil to condensate to gas. While Eagle Ford Gas is modeled with the lowest overall emissions of the gas fields analyzed in the OCI&#x207a; preview, its methane emissions account for large upstream GHGs and comprise a significant share if this field’s overall emissions. OCI&#x207a; proxy oil assay source: Eagle Ford Chem Grade, Statoil (2017)"
+  },
+  "U.S. Pennsylvania Marcellus": {
+    "description": "The Marcellus shale play is located in the Appalachian Basin along the eastern United States and produces wet, sweet gas. Marcellus shale gas has low overall GHG emissions but relatively high upstream emissions that result from methane leakage that occur during production and processing. A proxy condensate has been selected to model the natural gas liquids (NGLs) that are associated with gas production. OCI&#x207a; proxy oil assay source: Eagle Ford Chem Grade, Statoil (2017)"
+  },
+  "UK Brent": {
+    "description": "The Brent field was once among the most productive oil fields in the North Sea; in recent decades, however, this depleted oil field has primarily produced wet, sour gas. Brent has extremely high overall GHG emissions that are equivalent to the depleted Midway Sunset oil field in California. Its upstream emissions from fugitives and flaring comprise nearly two-thirds of its total emissions. Brent has industry emissions that are much greater than its downstream emissions from consumer products. A light, sweet proxy crude has been selected to model the oil associated with Brent’s gas production. OCI&#x207a; proxy oil assay source: Sumatran Light Minas, Chevron (2009)"
+  },
+  "UAE Shah": {
+    "description": "This deep onshore gas-condensate field, located 200 km southwest of Abu Dhabi, produces extremely sour gas. UAE Shah has average overall emissions and higher than average upstream emissions from its processing. A medium, sour proxy crude has been selected to model the oil associated with Shah’s gas production. OCI&#x207a; proxy oil assay source: Iraq Basra Light, BP (2015)"
+  },
+  "New Zealand Kapuni": {
+    "description": "The declining Kapuni field on New Zealand’s North Island has been producing extremely sour gas (44% CO2) for almost half a century. Kapuni is one of few OCI&#x207a; cases where industry emissions are greater than its downstream emissions from consumer products. A medium, sour proxy crude has been selected to model the oil associated with Kapuni’s gas production. OCI&#x207a; proxy assay source: Iraq Basra Light, BP (2015)"
+  },
+  "Australia Gorgon": {
+    "description": "The ultra-deepwater Gorgon field—part of the Greater Gorgon project—produces dry, sour gas (13-14% CO2). Gorgon employs both carbon capture and storage (CCS) and exports all of its gas as LNG. It has average overall emissions and higher than average upstream emissions from the liquefaction of its gas for transport. A medium, sour proxy crude has been selected to model the oil associated with Gorgon’s gas production. OCI&#x207a; proxy assay source: Iraq Basra Light, BP (2015)"
+  },
+  "China Sulige": {
+    "description": "The Sulige field’s gas is derived from coal-bed methane and is the highest producing field in China. It is located in inner Mongolia. Sulige’s overall GHG emissions are slightly below average. A medium, sour proxy crude has been selected to model the very small fraction of its oil associated with Sulige’s gas production. OCI&#x207a; proxy assay source: Iraq Basra Light, BP (2015)"
+  },
+  "Iran South Pars": {
+    "description": "Located in the same formation as Qatar’s North Dome field, South Pars/North Dome constitutes the largest gas accumulation in the world. South Pars produces wet, sour gas. This field’s overall emissions are below average and its upstream emissions, which are comprised mostly of fugitives, are relatively low compared to other fields. A medium, sour proxy crude has been selected to model the oil associated with South Pars’ gas production. OCI&#x207a; proxy assay source: Iraq Basra Light, BP (2015)"
+  },
+  "Qatar Idd El Shargi": {
+    "description": "Idd El Shargi is located offshore about 85 kilometers east of Doha in the shallow waters of the Persian Gulf. It is one of Qatar's largest oil fields, North Dome, and contains wet, sour gas. At least one-half of Idd El Shargi’s gas is transported as LNG, which along with fugitive emissions comprises the majority of this field’s upstream emissions. Idd El Shargi produces significant amounts of gas, condensate, and oil.  A medium, sour proxy crude has been selected to model the oil associated with Idd El Shargi’s gas production. OCI&#x207a; proxy assay source: Iraq Basra Light, BP (2015)"
+  },
+  "Russia Astrakhanskoye": {
+    "description": "Astrakhanskoye is a sour gas condensate field located in southern Russia, both onshore and offshore adjacent to the Caspian Sea. It is high in carbon dioxide and hydrogen sulfide. A medium, sour proxy crude has been selected to model the oil associated with Idd El Shargi’s gas production. OCI&#x207a; proxy assay source: Iraq Basra Light, BP (2015)"
+  },
+  "Russia Urengoyskoye": {
+    "description": "Russia Urengoiskoye is an ultra-deep, super-giant onshore gas field in the Nadym-Pur-Taz regionof the West Siberia province. This wet gas and condensate rich reservoir features a complex geological structure and high presure amid harsh natural and climatic conditions. Gas from this field is exported to Western Europe. Urengoiskoye produces significant amounts of liquids along with its gas. A sweet, proxy crude has been selected to model the oil associated with Urengoiskoye's gas production. OCI&#x207a; proxy oil assay source: Sumatran Light Minas, Chevron (2009)"
+  },
+  "Argentina Vaca Muerta": {
+    "description": "Vaca Muerta is a new, large shale gas onshore development that is located in Argentina's Neuquen Province This hydrocarbon-rich field is estimated to hold billions of barrels of gas and oil. Given its west coast location, it is likely that Vaca Muerta's gas will be shipped as LNG. A condensate assay has been selected to model the ol associated with Vaca Muerta's liquids production. OCI&#x207a; proxy oil assay source: Eagle Ford Chem Grade, Statoil (2017)"
+  }
+}

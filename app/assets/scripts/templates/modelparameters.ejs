@@ -1,0 +1,35 @@
+<a href="#" class="toggle clearfix">
+  <h3 class="control-title">Model parameters</h3>
+  <span class="link-edit link">Edit</span>
+  <span class="link-close link">Close</span>
+</a>
+<div class="mp-summary">
+  <ul class="mp-list">
+    <% Object.keys(metadata).forEach(key => { %>
+      <li>
+        <h6 class="key icon-<%= key %>" data-title-after="<%= metadata[key].description %>"><%= metadata[key].name %></h6>
+        <div class="value <%= key %>"><span></span></div>
+      </li>
+
+    <% }) %>
+  </ul>
+</div>
+<div class="mp-edit">
+  <% Object.keys(metadata).forEach(key => { %>
+    <div class="param-control icon-<%= key %>">
+      <div class="container-filter_title">
+        <strong class="param-title"><%= metadata[key].name %></strong>
+        <span data-title-before="<%= metadata[key].description %>" class="icon-information">?</span>
+      </div>
+      <% if (metadata[key].type === 'slider') { %>
+         <div class="slider" id="slider-<%= key %>"></div>
+       <% } else { %>
+         <label class="switch <%= key %>-override" for="toggle-<%= key %>">
+           <input id="toggle-<%= key %>" type="checkbox" unchecked />
+           <span class="switch-text"><%= metadata[key].name %></span>
+           <span class="switch-ui"></span>
+         </label>
+      <% } %>
+    </div>
+  <% }) %>
+</div>

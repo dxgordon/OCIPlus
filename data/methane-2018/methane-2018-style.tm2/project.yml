@@ -1,0 +1,25 @@
+_prefs: 
+  mapid: carnegiecomms.c1247a8f
+  saveCenter: true
+_properties: {}
+attribution: ''
+bounds: 
+  - -180
+  - -85.0511
+  - 180
+  - 85.0511
+center: 
+  - -70.4004
+  - 26.3919
+  - 4
+description: ''
+format: "png8:m=h"
+interactivity_layer: ''
+layers: null
+maxzoom: 7
+minzoom: 0
+name: methane-2018-style
+source: "mapbox:///carnegiecomms.c7e3e1e4,carnegiecomms.6415dbd3"
+styles: 
+  - style.mss
+template: ''

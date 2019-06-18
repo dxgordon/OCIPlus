@@ -1,0 +1,76 @@
+<div id="supply-curve-view" class="view">
+
+  <!-- intro -->
+  <section class="intro intro-production">
+    <div class="overlay-dark">
+      <div class="prose prose-centered">
+        <h1 class="prose-prime-title">Viewing Total Emissions</h1>
+        <p class="copy-feature">The global oil and gas industry produce nearly 100 million barrels of oil and 60 million barrels of oil equivalent of gas a day. The OCI<sup>+</sup> showcases a range of oil and gas resources currently under production. Use this chart to view the estimated total greenhouse emissions from a barrel equivalent of oil, filtering by region or resource category. Shift between emissions using both 100- and 20-year global warming potentials. Hover over each bar to see total emissions or navigate to a page summarizing detailed emissions.</p>
+      </div>
+      <div class="attribution"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a><a href="https://www.digitalglobe.com/" target="_blank">© DigitalGlobe</a></div>
+    </div>
+  </section>
+  <!--/ intro -->
+
+  <!-- chart-section -->
+  <section class="section-content has-aside" id="sc-chart-cont">
+    <div class="row">
+      <header class="panel-header">
+        <div class="panel-headline">
+          <h1 class="panel-title">Chart</h1>
+        </div>
+      </header>
+
+      <div class="panel-body">
+        <div id="supply-curve" class="data-charts">
+          <span class="button button-small button-filter">Filter Chart</span>
+          <div id="no-results-message">
+            <p>There are currently no oils that match your filter requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-hideable filter-hidden">
+        <h3 class="header-filter">Filter Oil and Gas</h3>
+
+        <div class="control-section">
+          <fieldset id="ratio-select">
+            <legend class="control-title">Select Units</legend>
+            <div class="radio">
+              <label><input type="radio" name="ratio-select" value="perBarrel" checked> GHGs/BOE</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="ratio-select" value="perMJ"> GHGs/Megajoule Processed Oil and Gas</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="control-section">
+          <fieldset id="region-select">
+            <legend class="control-title">Filter by Region</legend>
+            <% regions.forEach(region => { %>
+              <div class="checkbox">
+                <label><input type="checkbox" name="region-select" value="<%= region %>"> <%= region %></label>
+              </div>
+            <% }) %>
+          </fieldset>
+        </div>
+
+        <div class="control-section">
+          <fieldset id="oiltype-select">
+            <legend class="control-title">Filter by Resource Type</legend>
+            <% types.forEach(type => { %>
+              <div class="checkbox">
+                <span class="swatch"></span>
+                <label><input type="checkbox" name="oiltype-select" value="<%= type %>"><span class="block-color" style="background-color: <%= getColor(type) %>"></span> <%= type %></label>
+              </div>
+            <% }) %>
+          </fieldset>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!--/ chart-section -->
+  <%= blueBar %>
+</div>

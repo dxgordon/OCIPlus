@@ -1,0 +1,25 @@
+_prefs: 
+  mapid: carnegiecomms.36832a60
+  saveCenter: true
+_properties: {}
+attribution: ''
+bounds: 
+  - -180
+  - -85.0511
+  - 180
+  - 85.0511
+center: 
+  - -49.9219
+  - 9.5357
+  - 3
+description: ''
+format: "png8:m=h"
+interactivity_layer: ''
+layers: null
+maxzoom: 7
+minzoom: 0
+name: methane-world-north-america-2018
+source: "mapbox:///carnegiecomms.f89c60b3"
+styles: 
+  - style.mss
+template: ''

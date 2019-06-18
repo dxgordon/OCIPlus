@@ -1,0 +1,135 @@
+<div id="compare-oils-view" class="view">
+
+  <!-- intro -->
+  <section class="intro intro-supply">
+    <div class="overlay-dark">
+      <div class="prose prose-centered">
+        <h1 class="prose-prime-title">Profiling Emissions in the Supply Chain</h1>
+        <p class="copy-feature">Each oil and gas has a different emissions footprint. Use the sorting tools to compare the GHG emissions that come from specific parts of the oil and gas supply chain. Edit certain model parameters to estimate how upstream, midstream, and downstream decisions change GHG emissions.</p>
+      </div>
+      <div class="attribution"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a><a href="https://www.digitalglobe.com/" target="_blank">© DigitalGlobe</a></div>
+    </div>
+  </section>
+  <!--/ intro -->
+
+  <!-- chart-section -->
+  <section class="panel has-aside section-content" id="co-chart-cont">
+    <div class="row">
+      <div class="panel-body">
+        <div class="chart-legend">
+          <dl class="key">
+            <dt class="key-title">Key</dt>
+            <dd class="key-item upstream">Upstream</dd>
+            <dd class="key-item midstream">Midstream</dd>
+            <dd class="key-item downstream">Downstream</dd>
+          </dl>
+        </div>
+
+        <div id="compare-oils" class="data-charts">
+        <div id="no-results-message">
+          <p>There are currently no oils that match your filter requirements.</p>
+        </div>
+        </div>
+
+      </div>
+      <div class="panel-aside">
+        <div>
+
+          <!-- model-parameters -->
+          <div id="model-parameters" class="control-section"></div>
+          <!--/ model-parameters -->
+
+          <form>
+            <div class="control-section carbon-tax-field-section">
+              <fieldset id="carbon-tax-field">
+                <legend class="control-title">Carbon Fee <span class="units-description">(per metric ton CO&#x2082)</span></legend>
+                <label class="switch" for="toggle-carbon">
+                  <input id="toggle-carbon" name="toggle-carbon" type="checkbox" />
+                  <span class="switch-text">Toggle Carbon</span>
+                  <span class="switch-ui"></span>
+                </label>
+                <div class="input-group disabled">
+                  <input class="form-control carbon-tax-input" type="text" name="carbon-tax" id="carbon-tax" value=<%= Oci.carbonTax %> />
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="control-section">
+              <fieldset id="step-select">
+                <legend class="control-title">Sort by Emissions Components</legend>
+                <div class="radio">
+                  <label><input type="radio" name="step-select" value="ghgTotal" checked> Total GHGs</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="step-select" value="upstream"> Upstream</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="step-select" value="midstream"> Midstream</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="step-select" value="downstream"> Downstream</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="step-select" value="indirect"> Upstream + Midstream (Indirect)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="step-select" value="type"> Oil and Gas Type</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="control-section">
+              <fieldset id="sort-select">
+                <legend class="control-title">Sort by Emissions Order</legend>
+                <div class="radio">
+                  <label><input type="radio" name="sort-select" value="true" checked> High-to-Low</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="sort-select" value="false"> Low-to-High</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="control-section">
+              <fieldset id="region-select">
+                <legend class="control-title">Filter by Region</legend>
+                <% regions.forEach(region => { %>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="region-select" value="<%= region %>"> <%= region %></label>
+                  </div>
+                <% }) %>
+              </fieldset>
+            </div>
+
+            <div class="control-section">
+              <fieldset id="oiltype-select">
+                <legend class="control-title">Filter by Resource Type</legend>
+                <% types.forEach(type => { %>
+                  <div class="checkbox">
+                    <span class="swatch"></span>
+                    <label><input type="checkbox" name="oiltype-select" value="<%= type %>"><span class="block-color" style="background-color: <%= getColor(type) %>"></span> <%= type %></label>
+                  </div>
+                <% }) %>
+              </fieldset>
+            </div>
+
+            <div class="control-section">
+              <fieldset id="opec-select">
+                <legend class="control-title">Filter by OPEC Membership</legend>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="opec-select" value="Y"> Member</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="opec-select" value="N"> Non-member</label>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ chart-section -->
+  <%= blueBar %>
+</div>

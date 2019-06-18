@@ -1,0 +1,25 @@
+_prefs: 
+  mapid: carnegiecomms.9e285c3e
+  saveCenter: true
+_properties: {}
+attribution: ''
+bounds: 
+  - -180
+  - -85.0511
+  - 180
+  - 85.0511
+center: 
+  - 4.6582
+  - 28.3044
+  - 4
+description: ''
+format: "png8:m=h"
+interactivity_layer: ''
+layers: null
+maxzoom: 18
+minzoom: 0
+name: OCI 2013
+source: "mapbox:///carnegiecomms.7025qo1b"
+styles: 
+  - style.mss
+template: ''

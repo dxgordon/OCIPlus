@@ -1,0 +1,50 @@
+{
+  "venting": {
+    "values": "1, .5, 1.5",
+    "name": "Vented Methane",
+    "description": "Select different methods for estimating vented methane releases",
+    "type": "slider"
+  },
+  "flare": {
+    "values": "1, .5, 1.5",
+    "name": "Flaring Intensity",
+    "description": "Select the share of natural gas wasted through combustion upstream",
+    "type": "slider"
+  },
+  "gwp": {
+    "values": "100, 20",
+    "name": "Global Warming Potential",
+    "description": "Select whether a 20 or 100 year Global Warming Potential is used to assess impact of non-CO2 emissions",
+    "type": "switch"
+  },
+  "fugitives": {
+    "values": "1, .5, 1.5",
+    "name": "Fugitive Methane",
+    "description": "Select different estimates of fugitive methane leakage",
+    "type": "slider"
+  },
+  "solarsteam": {
+    "values": "0, .3, .75",
+    "name": "Solar Steam",
+    "description": "Select the fraction of solar-generated steam used for enhanced oil recovery",
+    "type": "slider"
+  },
+  "petcoke": {
+    "values": "1, 0, .5",
+    "name": "Petroleum Coke",
+    "description": "Select the share of petroleum coke combusted downstream",
+    "type": "slider"
+  },
+  "lng": {
+    "values": "0, .5, 1",
+    "name": "LNG",
+    "description": "Select the share of gas shipped as LNG",
+    "type": "slider"
+  },
+  "hydrogen": {
+    "values": "0, .5, 1",
+    "name": "Renewable Hydrogen",
+    "description": "Select the share of hydrogen produced using renewable resources instead of steam reform methane",
+    "type": "slider"
+  }
+}
