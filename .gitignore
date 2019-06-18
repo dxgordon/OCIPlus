@@ -9,3 +9,4 @@ test/bower_components/
 app/assets/data/global-extents.json
 app/assets/data/runs/*
 app/assets/data/info.json
+app/assets/styles/_collecticons.scss
