@@ -453,7 +453,6 @@ var EmissionsDrivers = BaseView.extend({
     this.updateChart(axis);
   },
 
-
   updateAxes: function (changedAxis) {
     var transitionDuration = this.transitionDuration;
     if (!changedAxis || changedAxis === 'x') {
