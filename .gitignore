@@ -7,6 +7,6 @@ app/bower_components
 test/bower_components/
 *.DS_Store
 app/assets/data/global-extents.json
-app/assets/data/runs/*
+app/assets/data/runs/*.json
 app/assets/data/info.json
 app/assets/styles/_collecticons.scss
