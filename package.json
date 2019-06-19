@@ -2,6 +2,7 @@
   "name": "oci",
   "version": "0.0.0",
   "dependencies": {
+    "ava-cli": "0.0.1",
     "backbone": "1.3.2",
     "clipboard": "1.5.10",
     "csv-parse": "^4.4.3",

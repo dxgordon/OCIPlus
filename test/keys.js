@@ -22,7 +22,7 @@ test('All possible runs should be readable', function (t) {
   metadataKeys.sort();
   var runs = metadataKeys
     .reduce((a, x) => {
-      return _.flatten(sliderValues(a, metadata[x].split(',').length));
+      return _.flatten(sliderValues(a, metadata[x].values.split(',').length));
     }, ['']);
 
   runs.forEach((run) => {
