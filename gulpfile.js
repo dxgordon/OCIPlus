@@ -16,6 +16,7 @@ var exit = require('gulp-exit');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
 var notifier = require('node-notifier');
+var uglify = require('gulp-uglify-es').default;
 
 const {
   compile: collecticonsCompile
@@ -215,7 +216,7 @@ gulp.task('styles', function () {
 gulp.task('html', ['styles'], function () {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.js', uglify()))
     .pipe($.if('*.css', $.csso()))
     .pipe($.if(/\.(css|js)$/, rev()))
     .pipe(revReplace())
