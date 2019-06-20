@@ -56,8 +56,9 @@ const ModelParameters = Backbone.View.extend({
             const value = parseFloat(params[param]) * 100;
             this[`${param}slider`].set(value);
           } else {
-            const value = params[param];
-            $(`#toggle-${param}`).attr('checked', Boolean(value));
+            // if the value is first, we are unchecked (default), otherwise checked
+            const checked = Oci.data.metadata[param].values.split(',').map(Number).indexOf(params[param]);
+            $(`#toggle-${param}`).attr('checked', Boolean(checked));
           }
         });
       } catch (e) {

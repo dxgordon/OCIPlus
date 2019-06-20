@@ -417,7 +417,6 @@ var utils = {
     }
     var iconString = '';
     if (icons) {
-      console.log(icons);
       iconString = '<div class="card-details-drivers"><h6>Emissions Drivers:</h6>' +
         '<ul>' + icons.split(',').filter((f) => {
           return f.trim();
