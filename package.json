@@ -81,6 +81,7 @@
     "lint": "eslint app/assets/scripts/  --ext .js",
     "data": "npm run info && npm run sliders",
     "sliders": "node .build_scripts/xltojson.js basedata/sliderdata20.csv basedata/sliderdata100.csv",
-    "info": "node .build_scripts/xltojson-info.js basedata/infobase.csv basedata/info20.csv basedata/info100.csv"
+    "info": "node .build_scripts/xltojson-info.js basedata/infobase.csv basedata/info20.csv basedata/info100.csv",
+    "precalc": "node .build_scripts/precalc.js"
   }
 }

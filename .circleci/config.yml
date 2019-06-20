@@ -29,7 +29,7 @@ jobs:
 
       - run:
           name: Create built data files
-          command: npm run data
+          command: npm run data && npm run precalc
 
       - run:
           name: Test
