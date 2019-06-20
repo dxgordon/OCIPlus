@@ -53,14 +53,14 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "${PRODUCTION_BRANCH}" ]; then
               cd dist
-               git init
-               git config user.name "Deborah Gordon"
-               git config user.email "dxgordon@gmail.com"
-               git add .
-               git commit -m "CI deploy [skip ci]"
-               git remote add origin git@github.com:dxgordon/OCIPlus.git
-               git push origin --force --quiet gh-pages
-               rm -rf .git
+              git init
+              git config user.name "Deborah Gordon"
+              git config user.email "dxgordon@gmail.com"
+              git add .
+              git commit -m "CI deploy [skip ci]"
+              git remote add origin git@github.com:dxgordon/OCIPlus.git
+              git push origin --force --quiet master:gh-pages
+              rm -rf .git
             else
               echo "Not the branch you're looking for, skipping deploy"
             fi
