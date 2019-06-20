@@ -106,8 +106,8 @@
           <div class="data-charts chart-no-info">
             <div class="chart-item">
 
-              <h4 class="header__with-description">Total Greenhouse Gas Emissions Per Barrel</h4>
-              <p class="units description-header"><%= totalUnits %></p>
+              <h4 class="header__with-description" id="chart-title"><%= chartTitle %></h4>
+              <p class="units description-header" id="chart-units"><%= totalUnits %></p>
               <ul class="value">
                 <li>
                   <span id="model-total" class="stats-large"></span>
@@ -139,8 +139,24 @@
           <div class="data-controls">
 
             <!-- model-parameters -->
-            <div id="model-parameters" class="static"></div>
+            <div id="model-parameters" class="static control-section"></div>
             <!--/ model-parameters -->
+            <br />
+            <form>
+              <div class="control-section carbon-tax-field-section">
+                <fieldset id="carbon-tax-field">
+                  <legend class="control-title">Carbon Fee <span class="units-description">(per metric ton CO&#x2082)</span></legend>
+                  <label class="switch" for="toggle-carbon">
+                    <input id="toggle-carbon" name="toggle-carbon" type="checkbox" />
+                    <span class="switch-text">Toggle Carbon</span>
+                    <span class="switch-ui"></span>
+                  </label>
+                  <div class="input-group disabled">
+                    <input class="form-control carbon-tax-input" type="text" name="carbon-tax" id="carbon-tax" value=<%= Oci.carbonTax %> />
+                  </div>
+                </fieldset>
+              </div>
+            </form>
 
           </div>
         </div>

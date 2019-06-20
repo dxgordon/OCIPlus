@@ -39,8 +39,9 @@ const allKeys = {
   consumerGHG: { key: 'Consumer GHG Responsibility', name: 'Consumer GHG Responsibility', units: '' },
   methaneco2: { key: 'Methane Fugitives + Venting kg CO2e per BOE', name: 'Methane Fugitives + Venting', units: 'kg CO\u2082 eq. per BOE' },
   flaringco2: { key: 'Flaring kg CO2e per BOE', name: 'Flaring', units: 'kg CO\u2082 eq. per BOE' },
-  carbonFee10: { key: '$10 per tonne Carbon Fee Total GHG Emissions', name: '$10 per tonne Carbon Fee Total GHG Emissions', units: '$' },
-  carbonFee40: { key: '$40 per tonne Carbon Fee Total GHG Emissions', name: '$40 per tonne Carbon Fee Total GHG Emissions', units: '$' },
+  carbonFee10: { key: '$10 per tonne Carbon Fee Total GHG Emissions', name: '$10 per tonne Carbon Fee Total GHG Emissions', units: '$/kg CO\u2082' },
+  carbonFee: { key: 'Carbon Fee on Total GHG Emissions', name: 'Carbon Fee on Total GHG Emissions', units: '$/kg CO\u2082' },
+  carbonFee40: { key: '$40 per tonne Carbon Fee Total GHG Emissions', name: '$40 per tonne Carbon Fee Total GHG Emissions', units: '$/kg CO\u2082' },
   productionVolume: { key: '2017 Total Oil and Gas Production Volume ', name: '2017 Total Oil and Gas Production Volume', units: 'barrel oil equivalent oil and gas' },
   emissionRate: { units: 'barrel oil equivalent per day' }
 };
@@ -561,7 +562,7 @@ var utils = {
   },
 
   // Generates an oil object for plotting, potentially using default values
-  generateOilObject: function (oilKey, modelData, isComparison) {
+  generateOilObject: function (oilKey, modelData, isComparison, carbonMultiplier) {
     // if the oil key is a group instead of an oil...
     if (Object.keys(Oci.data.info).indexOf(oilKey) === -1) {
       // gather all matching oils
@@ -590,10 +591,10 @@ var utils = {
         'isComparison': sumObject.isComparison,
         'id': sumObject.id,
         'name': sumObject.name,
-        'ghgTotal': sumObject.ghgTotal / matchingLength,
-        'upstream': sumObject.upstream / matchingLength,
-        'midstream': sumObject.midstream / matchingLength,
-        'downstream': sumObject.downstream / matchingLength,
+        'ghgTotal': sumObject.ghgTotal / matchingLength * carbonMultiplier,
+        'upstream': sumObject.upstream / matchingLength * carbonMultiplier,
+        'midstream': sumObject.midstream / matchingLength * carbonMultiplier,
+        'downstream': sumObject.downstream / matchingLength * carbonMultiplier,
         'type': sumObject.type
       };
     } else {
@@ -612,10 +613,10 @@ var utils = {
         'isComparison': isComparison,
         'id': utils.makeId(info.Unique),
         'name': utils.prettyOilName(info),
-        'ghgTotal': ghgTotal,
-        'upstream': upstream,
-        'midstream': midstream,
-        'downstream': downstream,
+        'ghgTotal': ghgTotal * carbonMultiplier,
+        'upstream': upstream * carbonMultiplier,
+        'midstream': midstream * carbonMultiplier,
+        'downstream': downstream * carbonMultiplier,
         'type': info['Resource Type'].trim()
       };
     }

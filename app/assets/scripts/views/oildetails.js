@@ -22,7 +22,9 @@ var OilDetails = BaseView.extend({
     'change #toggle-gwp': 'handleParametersChange',
     'change .config-dropdown': 'handleDropdown',
     'click #oil-details-share': 'handleShare',
-    'click .compare': 'openCompare'
+    'click .compare': 'openCompare',
+    'change #toggle-carbon': 'handleCarbonToggle',
+    'keyup #carbon-tax': 'verifyPrice'
   },
 
   initialize: function (options) {
@@ -30,6 +32,12 @@ var OilDetails = BaseView.extend({
     this.height = 75 - this.margin.top - this.margin.bottom;
     this.barBuffer = 2;
     this.hasShareLinkBeenParsed = false;
+    this.showCarbon = false;
+
+    this.shareParams = [
+      { name: 'carbonToggle', input: 'toggle-carbon' },
+      { name: 'carbonTax', input: 'carbon-tax' }
+    ];
 
     // only used for sharing in this case
     this.chartElement = '#oil-details';
@@ -47,6 +55,36 @@ var OilDetails = BaseView.extend({
     // Generate the oil info section
     this.oil = utils.generateOilInfo(this.oilKey);
 
+    this.tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .html((d, svg) => {
+        var unitsString = this.showCarbon ? utils.getUnits('carbonFee') : utils.getUnits('ghgTotal');
+        return '<div class="popover in popover-compare">' +
+          '<div class="popover-inner">' +
+            '<div class="popover-header clearfix single-emission">' +
+              '<dl class="stats-list">' +
+                '<dt>' + this.getStepName(svg) + ' emissions<small class="units">' + unitsString + '</small></dt><dd>' + this.dataForSvg(svg, d).toFixed(0) + '</dd>' +
+              '</dl>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      })
+      // set tooltip offset and direction differently if they are "too small"
+      .offset((d, svg) => {
+        if (this.dataForSvg(svg, d) < this.xScale.domain()[1] * 0.3) {
+          return [0, 25];
+        } else {
+          return [-10, 0];
+        }
+      })
+      .direction((d, svg) => {
+        if (this.dataForSvg(svg, d) < this.xScale.domain()[1] * 0.3) {
+          return 'e';
+        } else {
+          return 'n';
+        }
+      });
+
     this.render();
   },
 
@@ -54,9 +92,10 @@ var OilDetails = BaseView.extend({
     this.$el.html(this.template({
       utils: utils,
       oil: this.oil,
-      totalUnits: utils.getUnits('ghgTotal', 'perBarrel'),
+      totalUnits: this.showCarbon ? utils.getUnits('carbonFee') : utils.getUnits('ghgTotal'),
       description: (Oci.blurbs[this.oilKey] || {}).description,
-      icons: Oci.data.info[this.oilKey]['Absolute Emissions Icons'],
+      chartTitle: this.showCarbon ? utils.getDatasetName('carbonFee') : utils.getDatasetName('ghgTotal'),
+      icons: Oci.data.info[this.oilKey]['Emissons Drivers'],
       suggestedOils: (Oci.relatedOils[this.oilKey] || [])
     }));
 
@@ -176,9 +215,11 @@ var OilDetails = BaseView.extend({
       oilValues: Oci.Collections.runs.get(run).toJSON()
     };
 
+    const carbonMultiplier = this.showCarbon ? Oci.carbonTax / 1000 : 1;
+
     this.chartData = [
-      utils.generateOilObject(this.oilKey, defaultModelData, true),
-      utils.generateOilObject(this.oilKey, modelData, false)
+      utils.generateOilObject(this.oilKey, defaultModelData, true, carbonMultiplier),
+      utils.generateOilObject(this.oilKey, modelData, false, carbonMultiplier)
     ];
   },
 
@@ -213,15 +254,18 @@ var OilDetails = BaseView.extend({
   },
 
   createScales: function () {
-    var self = this;
+    let domainMax = d3.max(this.chartData, (d) => {
+      return d3.max([utils.getGlobalExtent('perBarrel', 'max', 'downstream', this.oilKey),
+                     utils.getGlobalExtent('perBarrel', 'max', 'midstream', this.oilKey),
+                     utils.getGlobalExtent('perBarrel', 'max', 'upstream', this.oilKey)]);
+    });
+    if (this.showCarbon) {
+      domainMax = Oci.carbonTax * domainMax / 1000;
+    }
+
     this.xScale = d3.scale.linear()
-      .domain([0, d3.max(this.chartData,
-        function (d) {
-          return d3.max([utils.getGlobalExtent('perBarrel', 'max', 'downstream', self.oilKey),
-                         utils.getGlobalExtent('perBarrel', 'max', 'midstream', self.oilKey),
-                         utils.getGlobalExtent('perBarrel', 'max', 'upstream', self.oilKey)]);
-        })])
-        .range([0, self.width]);
+      .domain([0, domainMax])
+      .range([0, this.width]);
   },
 
   createData: function (svg) {
@@ -253,7 +297,19 @@ var OilDetails = BaseView.extend({
        })
        .attr('rx', 2)
        .attr('ry', 2)
-       .attr('class', function (d) { return (d.isComparison) ? 'default' : 'main'; });
+       .attr('class', function (d) { return (d.isComparison) ? 'default' : 'main'; })
+       .on('mouseover', function (d) { (!d.isComparison) ? self.tip.show(d, svg) : false; })
+       .on('mouseout', function (d) {
+         if (!d.isComparison) {
+           if (utils.insideTooltip(d3.event.clientX, d3.event.clientY)) {
+             $('.d3-tip').on('mouseleave', function () {
+               self.tip.hide();
+             });
+           } else {
+             self.tip.hide();
+           }
+         }
+       });
 
     // add text to show differences between the bars
     var diffData = {
@@ -310,6 +366,11 @@ var OilDetails = BaseView.extend({
               .append('g')
                 .attr('transform',
                       'translate(' + margin.left + ',' + margin.top + ')');
+
+    // Invoke the tooltip
+    this.upstreamSvg.call(this.tip);
+    this.midstreamSvg.call(this.tip);
+    this.downstreamSvg.call(this.tip);
 
     this.createChartData();
     this.createScales();
@@ -455,6 +516,51 @@ var OilDetails = BaseView.extend({
         }
       }
     });
+  },
+
+  handleCarbonToggle: function () {
+    this.showCarbon = $('#toggle-carbon').is(':checked');
+    if (this.showCarbon) {
+      $('#toggle-carbon').parent().parent().find('.input-group').removeClass('disabled');
+      // Set title/units
+      $('#chart-title').html(utils.getDatasetName('carbonFee'));
+      $('#chart-units').html(utils.getUnits('carbonFee'));
+    } else {
+      $('#toggle-carbon').parent().parent().find('.input-group').addClass('disabled');
+      // Set title/units
+      $('#chart-title').html(utils.getDatasetName('ghgTotal'));
+      $('#chart-units').html(utils.getUnits('ghgTotal'));
+    }
+    this.createChartData();
+    this.createScales();
+    this.createData(this.upstreamSvg);
+    this.createData(this.midstreamSvg);
+    this.createData(this.downstreamSvg);
+    this._updateCopyLink();
+  },
+
+  verifyPrice: function () {
+    var input = $('#carbon-tax');
+    var valid = /^\d{0,7}(\.\d{0,2})?$/.test(input.val());
+
+    if (!valid) {
+      var newValue = input.val();
+      newValue = newValue.replace(/[^\d.]/g, '');
+      newValue = parseFloat(newValue).toFixed(2);
+      // Take care of NaN case or too many numbers case
+      if (isNaN(newValue) || newValue.length >= 11) {
+        newValue = parseFloat(20).toFixed(2);
+      }
+
+      input.val(newValue);
+    }
+    Oci.carbonTax = input.val();
+    this.createChartData();
+    this.createScales();
+    this.createData(this.upstreamSvg);
+    this.createData(this.midstreamSvg);
+    this.createData(this.downstreamSvg);
+    this._updateCopyLink();
   }
 });
 

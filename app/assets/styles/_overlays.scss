@@ -117,6 +117,7 @@ $popover-arr-size: 16px;
     border-radius: $global-radius $global-radius 0 0;
     box-shadow: inset 0 -1px 0 0 $border-shadow-rgba;
     padding: 1em 16px .8em;
+    &.single-emission { background: transparent; }
   }
   .popover-body {
     padding: 7px 16px;

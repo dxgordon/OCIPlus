@@ -521,8 +521,7 @@ var CompareOils = BaseView.extend({
 
   getXAxisSubtitle: function () {
     if (this.showCarbon) {
-      return utils.getUnits('ghgTotal', 'perBarrel')
-        .replace(/.*\//, '$ fee/').replace('MJ', '1000 MJ');
+      return utils.getUnits('carbonFee');
     } else {
       return utils.getUnits('ghgTotal', 'perBarrel');
     }
