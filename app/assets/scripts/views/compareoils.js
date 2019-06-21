@@ -34,7 +34,7 @@ var CompareOils = BaseView.extend({
     'change #step-select': 'handleStepSelect',
     'change #region-select': function () { this.handleFilter('region-select', 'Region'); },
     'change #oiltype-select': function () { this.handleFilter('oiltype-select', 'Resource Type'); },
-    'change #opec-select': function () { this.handleFilter('opec-select', 'OPEC? Y/N'); },
+    'change #opec-select': function () { this.handleFilter('opec-select', 'OPEC'); },
     'change #toggle-carbon': 'handleCarbonToggle',
     'keyup #carbon-tax': 'verifyPrice'
   },
@@ -112,7 +112,7 @@ var CompareOils = BaseView.extend({
     this._parseURLAndSetState();
     this.handleFilter('region-select', 'Region');
     this.handleFilter('oiltype-select', 'Resource Type');
-    this.handleFilter('opec-select', 'OPEC? Y/N');
+    this.handleFilter('opec-select', 'OPEC');
     this.handleStepSelect();
     this.handleSortSelect();
     this.handleCarbonToggle();
