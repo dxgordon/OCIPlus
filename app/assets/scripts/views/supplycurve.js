@@ -250,6 +250,9 @@ var SupplyCurve = BaseView.extend({
       .text('Million Barrel of oil equivalents per day');
 
     // Y axis title
+    const yVar = this.yProperty === 'perBarrel'
+      ? 'ghgTotal'
+      : 'ghgPerMJ';
     g = this.svg.append('g');
     g.append('text')
       .attr('transform', 'rotate(-90)')
@@ -258,7 +261,7 @@ var SupplyCurve = BaseView.extend({
       .attr('dy', '1em')
       .style('text-anchor', 'middle')
       .attr('class', 'y axis title')
-      .text(utils.getDatasetName('ghgTotal', this.yProperty));
+      .text(utils.getDatasetName(yVar));
     g.append('text')
       .attr('transform', 'rotate(-90)')
       .attr('y', -this.margin.left + 20)
@@ -266,7 +269,7 @@ var SupplyCurve = BaseView.extend({
       .attr('dy', '1em')
       .style('text-anchor', 'middle')
       .attr('class', 'y axis title subtitle')
-      .text(utils.getUnits('ghgTotal', this.yProperty));
+      .text(utils.getUnits(yVar));
 
     // Graph title
     this.svg.append('text')
@@ -287,9 +290,12 @@ var SupplyCurve = BaseView.extend({
       .call(this[axis + 'Axis']);
 
     if (axis === 'y') {
+      const yVar = this.yProperty === 'perBarrel'
+        ? 'ghgTotal'
+        : 'ghgPerMJ';
       $('.y.axis.title').fadeOut(this.transitionDuration / 2, function () {
-        self.svg.select('.y.axis.title').text(utils.getDatasetName('ghgTotal', self.yProperty));
-        self.svg.select('.y.axis.title.subtitle').text(utils.getUnits('ghgTotal', self.yProperty));
+        self.svg.select('.y.axis.title').text(utils.getDatasetName(yVar));
+        self.svg.select('.y.axis.title.subtitle').text(utils.getUnits(yVar));
         $(this).fadeIn(self.transitionDuration / 2);
       });
     }

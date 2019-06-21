@@ -7,7 +7,7 @@ var _ = require('lodash');
 var RunModel = require('./models/run');
 
 const allKeys = {
-  ghgPerMJ: { key: 'Total Emissions (MJ)', name: 'Total Emissions (MJ)', units: 'kg CO\u2082 eq./MJ' },
+  ghgPerMJ: { key: 'Total Emissions (MJ)', name: 'Total Emissions', units: 'kg CO\u2082 eq./MJ' },
   ghgTotal: { key: 'Total Emissions', name: 'Total Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   upstream: { key: 'Upstream Emissions', name: 'Upstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   midstream: { key: 'Midstream Emissions', name: 'Midstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
