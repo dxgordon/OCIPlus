@@ -8,10 +8,10 @@ var RunModel = require('./models/run');
 
 const allKeys = {
   ghgPerMJ: { key: 'Total Emissions (MJ)', name: 'Total Emissions (MJ)', units: 'kg CO\u2082 eq./MJ' },
-  ghgTotal: { key: 'Total Emissions', name: 'Total Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent oil and gas' },
-  upstream: { key: 'Upstream Emissions', name: 'Upstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent oil and gas' },
-  midstream: { key: 'Midstream Emissions', name: 'Midstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent oil and gas' },
-  downstream: { key: 'Downstream Emissions', name: 'Downstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent oil and gas' },
+  ghgTotal: { key: 'Total Emissions', name: 'Total Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
+  upstream: { key: 'Upstream Emissions', name: 'Upstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
+  midstream: { key: 'Midstream Emissions', name: 'Midstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
+  downstream: { key: 'Downstream Emissions', name: 'Downstream Emissions', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   methaneFV: { key: 'Methane Fugitives + Venting tonnes methane per day', name: 'Methane Fugitives + Venting', units: 'tonnes methane per day' },
   co2FV: { key: 'CO2 Fugitives + Venting tonnes CO2e per day', name: 'CO2 Fugitives + Venting', units: 'tonnes CO\u2082 eq. per day' },
   leakage: { key: 'Methane Leakage Rate tonnes methane per tonnes wellbore gas', name: 'Methane Leakage Rate', units: 'tonnes methane per tonnes wellbore gas' },
@@ -39,10 +39,10 @@ const allKeys = {
   consumerGHG: { key: 'Consumer GHG Responsibility', name: 'Consumer GHG Responsibility', units: '' },
   methaneco2: { key: 'Methane Fugitives + Venting kg CO2e per BOE', name: 'Methane Fugitives + Venting', units: 'kg CO\u2082 eq. per BOE' },
   flaringco2: { key: 'Flaring kg CO2e per BOE', name: 'Flaring', units: 'kg CO\u2082 eq. per BOE' },
-  carbonFee10: { key: '$10 per tonne Carbon Fee Total GHG Emissions', name: '$10 per tonne Carbon Fee Total GHG Emissions', units: '$/kg CO\u2082' },
-  carbonFee: { key: 'Carbon Fee on Total GHG Emissions', name: 'Carbon Fee on Total GHG Emissions', units: '$/kg CO\u2082' },
-  carbonFee40: { key: '$40 per tonne Carbon Fee Total GHG Emissions', name: '$40 per tonne Carbon Fee Total GHG Emissions', units: '$/kg CO\u2082' },
-  productionVolume: { key: '2017 Total Oil and Gas Production Volume ', name: '2017 Total Oil and Gas Production Volume', units: 'barrel oil equivalent oil and gas' },
+  carbonFee10: { key: '$10 per tonne Carbon Fee Total GHG Emissions', name: '$10 per tonne Carbon Fee Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
+  carbonFee: { key: 'Carbon Fee on Total GHG Emissions', name: 'Carbon Fee on Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
+  carbonFee40: { key: '$40 per tonne Carbon Fee Total GHG Emissions', name: '$40 per tonne Carbon Fee Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
+  productionVolume: { key: '2017 Total Oil and Gas Production Volume ', name: '2017 Total Oil and Gas Production Volume', units: 'barrel oil equivalent' },
   emissionRate: { units: 'barrel oil equivalent per day' }
 };
 
