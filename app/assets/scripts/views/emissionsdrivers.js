@@ -106,13 +106,9 @@ var EmissionsDrivers = BaseView.extend({
   addExtentBuffer: function (extent) {
     // sometimes only receives a max number and then we shouldn't try to access array elements
     var extentBuffer = this.extentBuffer;
-    if (typeof extent === 'object') {
-      // flip our lower extent buffer for negative values
-      extent[0] = extent[0] * (1 - extentBuffer * (extent[0] > 0 ? 1 : -1));
-      extent[1] = extent[1] * (1 + extentBuffer);
-    } else {
-      extent = extent * (1 + extentBuffer);
-    }
+    const span = extent[1] - extent[0];
+    extent[0] = extent[0] - (span * extentBuffer);
+    extent[1] = extent[1] + (span * extentBuffer);
     return extent;
   },
 
@@ -135,9 +131,9 @@ var EmissionsDrivers = BaseView.extend({
                .range([this.height, 0])
                .nice();
 
-    var rExtent = this.addExtentBuffer(d3.extent(this.chartData, function (d) {
+    var rExtent = [0, d3.max(this.chartData, function (d) {
       return d.productionVolume;
-    }));
+    }) * (1 + this.extentBuffer)];
 
     this.rScale = d3.scale.sqrt()
                   .domain(rExtent)
