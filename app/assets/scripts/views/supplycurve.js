@@ -44,6 +44,7 @@ var SupplyCurve = BaseView.extend({
     this.shareParams = [
       { name: 'ratioSelect', input: 'ratio-select' },
       { name: 'regionSelect', input: 'region-select' },
+      { name: 'groupSelect', input: 'group-select' },
       { name: 'oiltypeSelect', input: 'oiltype-select' }
     ];
 
@@ -123,6 +124,7 @@ var SupplyCurve = BaseView.extend({
     this.handleRatioSelect();
     this.handleFilter('region-select', 'Region');
     this.handleFilter('oiltype-select', 'Resource Type');
+    this.handleFilter('group-select', 'Oil or Gas');
     this.hasShareLinkBeenParsed = true;
   },
 

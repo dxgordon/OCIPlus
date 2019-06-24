@@ -49,6 +49,7 @@ var EmissionsDrivers = BaseView.extend({
     this.shareParams = [
       { name: 'xSelect', input: 'x-select' },
       { name: 'ySelect', input: 'y-select' },
+      { name: 'groupSelect', input: 'group-select' },
       { name: 'oiltypeSelect', input: 'oiltype-select' }
     ];
 
@@ -101,13 +102,15 @@ var EmissionsDrivers = BaseView.extend({
     this.changeAxisCategory('x');
     this.changeAxisCategory('y');
     this.handleFilter('oiltype-select', 'Resource Type');
+    this.handleFilter('group-select', 'Oil or Gas');
     this.hasShareLinkBeenParsed = true;
   },
 
   addExtentBuffer: function (extent) {
     // sometimes only receives a max number and then we shouldn't try to access array elements
     var extentBuffer = this.extentBuffer;
-    const span = extent[1] - extent[0];
+    // we buffer using the total span shown, make sure it isn't zero
+    const span = Math.max(extent[1] - extent[0], 1);
     extent[0] = extent[0] - (span * extentBuffer);
     extent[1] = extent[1] + (span * extentBuffer);
     return extent;

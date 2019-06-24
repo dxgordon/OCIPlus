@@ -61,6 +61,7 @@ var CompareOils = BaseView.extend({
       { name: 'sortSelect', input: 'sort-select' },
       { name: 'regionSelect', input: 'region-select' },
       { name: 'oiltypeSelect', input: 'oiltype-select' },
+      { name: 'groupSelect', input: 'group-select' },
       { name: 'opecSelect', input: 'opec-select' }
     ];
     // for resizing customization
@@ -114,6 +115,7 @@ var CompareOils = BaseView.extend({
     this.handleFilter('region-select', 'Region');
     this.handleFilter('oiltype-select', 'Resource Type');
     this.handleFilter('opec-select', 'OPEC');
+    this.handleFilter('group-select', 'Oil or Gas');
     this.handleStepSelect();
     this.handleSortSelect();
     this.handleCarbonToggle();
