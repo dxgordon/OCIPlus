@@ -35,6 +35,7 @@ var CompareOils = BaseView.extend({
     'change #region-select': function () { this.handleFilter('region-select', 'Region'); },
     'change #oiltype-select': function () { this.handleFilter('oiltype-select', 'Resource Type'); },
     'change #opec-select': function () { this.handleFilter('opec-select', 'OPEC'); },
+    'change #group-select': function () { this.handleFilter('group-select', 'Oil or Gas'); },
     'change #toggle-carbon': 'handleCarbonToggle',
     'keyup #carbon-tax': 'verifyPrice'
   },

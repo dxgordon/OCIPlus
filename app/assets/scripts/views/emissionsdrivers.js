@@ -24,6 +24,7 @@ var EmissionsDrivers = BaseView.extend({
     'click': 'hideTip',
     'change #toggle-gwp': 'handleParametersChange',
     'change .config-dropdown': 'handleDropdown',
+    'change #group-select': function () { this.handleFilter('group-select', 'Oil or Gas'); },
     'change #oiltype-select': function () { this.handleFilter('oiltype-select', 'Resource Type'); }
   },
 

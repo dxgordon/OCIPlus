@@ -24,6 +24,7 @@ var SupplyCurve = BaseView.extend({
     'click': 'hideFilterIfClickOutside',
     'click #ratio-select': 'handleRatioSelect',
     'change #toggle-gwp': 'handleGWP',
+    'change #group-select': function () { this.handleFilter('group-select', 'Oil or Gas'); },
     'change #region-select': function () { this.handleFilter('region-select', 'Region'); },
     'change #oiltype-select': function () { this.handleFilter('oiltype-select', 'Resource Type'); }
   },
