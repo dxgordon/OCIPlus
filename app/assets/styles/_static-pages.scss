@@ -106,6 +106,17 @@ ul.oiltype-legend {
   }
 }
 
+#methodology-view table {
+  thead {
+    text-transform: uppercase;
+  }
+  td {
+    border: 1px solid $gray-medium;
+    padding: 0.5rem;
+  }
+  margin-bottom: 1rem;
+}
+
 .prose.prose-content .contentImg.headshot {
 	width:126px;
 	height:162px;
@@ -218,4 +229,8 @@ ul.oiltype-legend {
 
 .view-demovideos .video-wrapper {
   margin-bottom:4em;
+}
+
+.footnote-inline {
+  font-size: 0.8rem;
 }
