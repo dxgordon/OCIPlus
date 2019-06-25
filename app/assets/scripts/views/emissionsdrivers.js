@@ -135,9 +135,14 @@ var EmissionsDrivers = BaseView.extend({
                .range([this.height, 0])
                .nice();
 
-    var rExtent = [0, d3.max(this.chartData, function (d) {
-      return d.productionVolume;
-    }) * (1 + this.extentBuffer)];
+    // this extent is based on the full data set (not the filtered data)
+    // so that the legend and circles stay the same size
+    const productionVolumes = Object.keys(Oci.data.info).map((key) => {
+      const oil = Oci.data.info[key];
+      return +oil[utils.getDatasetKey('productionVolume')];
+    });
+
+    var rExtent = [0, Math.max(...productionVolumes) * (1 + this.extentBuffer)];
 
     this.rScale = d3.scale.sqrt()
                   .domain(rExtent)
