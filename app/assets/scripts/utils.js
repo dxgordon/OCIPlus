@@ -198,10 +198,10 @@ var utils = {
   },
 
   categoryColorForType: function (oilType) {
-    const colors = ['#231F20', '#645A4F', '#006838', '#009444', '#8DC63F',
+    const colors = ['#003209', '#005512', '#006838', '#009444', '#8DC63F',
                     '#003A63', '#006AA7',
-                 '#4B0082', '#9467bd', '#e377c2', '#B0E0E6', '#8B0000',
-                 '#A9A9A9', '#D3D3D3'
+                 '#fd8d3c', '#e31a1c', '#ec7014', '#feb24c', '#8B0000',
+                 '#fed976', '#ffeda0'
                ];
     switch (oilType) {
       case 'Extra-Heavy':
