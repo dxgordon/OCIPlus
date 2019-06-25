@@ -18,23 +18,23 @@ var productionGraph = [
   { p: 15, g: 71, type: 'Medium Oil' },
   { p: 23, g: 73, type: 'Medium Oil' },
   { p: 60, g: 77, type: 'Ultra-Light Oil' },
-  { p: 23, g: 81, type: 'Ultra-Light Oil' },
+  { p: 23, g: 81, type: 'Shale Gas' },
   { p: 35, g: 82, type: 'Light Oil' },
   { p: 15, g: 85, type: 'Medium Oil' },
   { p: 40, g: 90, type: 'Condensate' },
   { p: 25, g: 105, type: 'Depleted Oil' },
   { p: 25, g: 110, type: 'Light Oil' },
   { p: 20, g: 110, type: 'Depleted Oil' },
-  { p: 33, g: 120, type: 'Medium Oil' }
+  { p: 33, g: 120, type: 'Depleted Gas' }
 ];
 var supplyChain = [
   [
     { g: 60, type: 'Ultra-Light Oil', x: 'oil1', y: 30 },
     { g: 73, type: 'Light Oil', x: 'oil2', y: 40 },
     { g: 77, type: 'Medium Oil', x: 'oil3', y: 25 },
-    { g: 81, type: 'Ultra-Light Oil', x: 'oil4', y: 60 },
-    { g: 105, type: 'Depleted Oil', x: 'oil5', y: 65 },
-    { g: 110, type: 'Extra-Heavy', x: 'oil6', y: 78 },
+    { g: 81, type: 'Shale Gas', x: 'oil4', y: 60 },
+    { g: 105, type: 'Sour Gas', x: 'oil5', y: 65 },
+    { g: 110, type: 'Condensate', x: 'oil6', y: 78 },
     { g: 110, type: 'Depleted Oil', x: 'oil7', y: 80 },
     { g: 120, type: 'Heavy Oil', x: 'oil8', y: 72 }
   ],
@@ -42,9 +42,9 @@ var supplyChain = [
     { g: 60, type: 'Ultra-Light Oil', x: 'oil1', y: 20 },
     { g: 73, type: 'Light Oil', x: 'oil2', y: 19 },
     { g: 77, type: 'Medium Oil', x: 'oil3', y: 18 },
-    { g: 81, type: 'Ultra-Light Oil', x: 'oil4', y: 12 },
-    { g: 105, type: 'Depleted Oil', x: 'oil5', y: 25 },
-    { g: 110, type: 'Extra-Heavy', x: 'oil6', y: 30 },
+    { g: 81, type: 'Shale Gas', x: 'oil4', y: 12 },
+    { g: 105, type: 'Sour Gas', x: 'oil5', y: 25 },
+    { g: 110, type: 'Condensate', x: 'oil6', y: 30 },
     { g: 110, type: 'Depleted Oil', x: 'oil7', y: 20 },
     { g: 120, type: 'Heavy Oil', x: 'oil8', y: 10 }
   ],
@@ -52,9 +52,9 @@ var supplyChain = [
     { g: 60, type: 'Ultra-Light Oil', x: 'oil1', y: 10 },
     { g: 73, type: 'Light Oil', x: 'oil2', y: 14 },
     { g: 77, type: 'Medium Oil', x: 'oil3', y: 34 },
-    { g: 81, type: 'Ultra-Light Oil', x: 'oil4', y: 9 },
-    { g: 105, type: 'Depleted Oil', x: 'oil5', y: 15 },
-    { g: 110, type: 'Extra-Heavy', x: 'oil6', y: 2 },
+    { g: 81, type: 'Shale Gas', x: 'oil4', y: 9 },
+    { g: 105, type: 'Sour Gas', x: 'oil5', y: 15 },
+    { g: 110, type: 'Condensate', x: 'oil6', y: 2 },
     { g: 110, type: 'Depleted Oil', x: 'oil7', y: 10 },
     { g: 120, type: 'Heavy Oil', x: 'oil8', y: 38 }
   ]
