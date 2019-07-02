@@ -34,7 +34,7 @@ const allKeys = {
   heavyEnds: { key: 'Liquid Heavy Ends', name: 'Liquid Heavy Ends Volume', units: 'BOE Product per 1000 BOE' },
   naturalGas: { key: 'Natural Gas Liquids', name: 'Natural Gas Liquids Volume', units: 'BOE Product per 1000 BOE' },
   LPG: { key: 'Liquefied Petroleum Gases', name: 'Liquefied Petroleum Gases Volume', units: 'BOE Product per 1000 BOE' },
-  feedstocks: { key: 'Petrochemical Feedstocks Production', name: 'Petrochemical Feedstocks Production', units: 'BOE Product per 1000 BOE' },
+  feedstocks: { key: 'Petrochemical Feedstocks Production', name: 'Petrochemical Feedstock + NGL Production', units: 'BOE Product per 1000 BOE' },
   industryGHG: { key: 'Industry GHG Responsibility', name: 'Industry GHG Responsibility', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   consumerGHG: { key: 'Consumer GHG Responsibility', name: 'Consumer GHG Responsibility', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   methaneco2: { key: 'Methane Fugitives + Venting kg CO2e per BOE', name: 'Methane Fugitives + Venting', units: 'kg CO\u2082 eq. per BOE' },
