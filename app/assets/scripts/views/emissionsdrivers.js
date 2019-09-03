@@ -430,6 +430,7 @@ var EmissionsDrivers = BaseView.extend({
         industryGHG: +oil[`gwp${gwp}`][utils.getDatasetKey('industryGHG')],
         consumerGHG: +oil[`gwp${gwp}`][utils.getDatasetKey('consumerGHG')],
         methaneco2: +oil[`gwp${gwp}`][utils.getDatasetKey('methaneco2')],
+        allFugitiveVenting: +oil[`gwp${gwp}`][utils.getDatasetKey('allFugitiveVenting')],
         flaringco2: +oil[`gwp${gwp}`][utils.getDatasetKey('flaringco2')],
         carbonFee10: +oil[`gwp${gwp}`][utils.getDatasetKey('carbonFee10')],
         carbonFee40: +oil[`gwp${gwp}`][utils.getDatasetKey('carbonFee40')]

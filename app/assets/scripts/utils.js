@@ -38,6 +38,7 @@ const allKeys = {
   industryGHG: { key: 'Industry GHG Responsibility', name: 'Industry GHG Responsibility', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   consumerGHG: { key: 'Consumer GHG Responsibility', name: 'Consumer GHG Responsibility', units: 'kg CO\u2082 eq./barrel oil equivalent' },
   methaneco2: { key: 'Methane Fugitives + Venting kg CO2e per BOE', name: 'Methane Fugitives + Venting', units: 'kg CO\u2082 eq. per BOE' },
+  allFugitiveVenting: { key: 'All fugitives and venting kg CO2e per BOE', name: 'All Fugitives + Venting Emissions', units: 'kg CO\u2082 eq. per BOE' },
   flaringco2: { key: 'Flaring kg CO2e per BOE', name: 'Flaring', units: 'kg CO\u2082 eq. per BOE' },
   carbonFee10: { key: '$10 per tonne Carbon Fee Total GHG Emissions', name: '$10 per tonne Carbon Fee Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
   carbonFee: { key: 'Carbon Fee on Total GHG Emissions', name: 'Carbon Fee on Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
