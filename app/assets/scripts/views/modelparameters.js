@@ -88,6 +88,7 @@ const ModelParameters = Backbone.View.extend({
         const m = Oci.data.metadata[key];
         const labels = this.formatMetadataValues(m.values);
         const values = this.sliderHelper(labels);
+        const pipFormatter = this.getPipFormatter(key);
         const range = _.zipObject(values, labels);
         this[`${key}slider`] = noUiSlider.create($(`#slider-${key}`)[0], {
           start: +m.values.split(',')[0] * 100,
@@ -98,9 +99,7 @@ const ModelParameters = Backbone.View.extend({
             mode: 'values',
             values: labels,
             density: 10,
-            format: wNumb({
-              postfix: '%'
-            }),
+            format: pipFormatter,
             stepped: true
           }
         });
@@ -131,6 +130,21 @@ const ModelParameters = Backbone.View.extend({
     return values.split(',').sort(function (a, b) {
       return Number(a) - Number(b);
     }).map(function (val) { return Number(val) * 100; });
+  },
+
+  getPipFormatter: function (key) {
+    if (['venting', 'fugitives'].includes(key)) {
+      // these two slides have internal values of 50/100/150 which should be
+      // displayed as low/default/high
+      const obj = { Low: 50, Default: 100, High: 150 };
+      return {
+        to: (num) => Object.keys(obj).find((k) => obj[k] === num),
+        from: (key) => obj[key]
+      };
+    }
+    return wNumb({
+      postfix: '%'
+    });
   }
 });
 
