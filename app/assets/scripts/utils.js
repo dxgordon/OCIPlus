@@ -300,7 +300,11 @@ var utils = {
   },
 
   numberWithCommas: function (x) {
+    // update 2019-09-02, need to show hundredths place of smaller numbers
     if (typeof x === 'string') { x = Number(x.split(',').join('')); }
+
+    // for small numbers, round to hundredths and return early
+    if (Math.abs(x) < 1) return x.toFixed(2);
 
     // Always allow three significant digits
     var powerOfTen = x.toFixed(0).length - 1;
