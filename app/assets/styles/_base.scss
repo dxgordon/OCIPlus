@@ -467,6 +467,8 @@ a:active{
   .menu-dropdown {
     position: absolute;
     display: none;
+    max-height: 296px;
+    overflow-y: auto;
     &.open {
       display: block;
     }
