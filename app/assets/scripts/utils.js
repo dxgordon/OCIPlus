@@ -577,7 +577,7 @@ var utils = {
       // generate objects for them
       }).map(function (oil, key, arr) {
         matchingLength = arr.length;
-        return utils.generateOilObject(oil.Unique, modelData, isComparison);
+        return utils.generateOilObject(oil.Unique, modelData, isComparison, 1);
       // sum + average
       }).reduce(function (a, b) {
         return {
