@@ -10,8 +10,7 @@ var utils = require('../utils');
 var template = require('../templates/compareview.ejs');
 var ModelParameters = require('./modelparameters');
 var BaseView = require('./baseview');
-var OpgeeModel = require('../models/opgee');
-var PrelimModel = require('../models/prelim');
+var RunModel = require('../models/run');
 
 var CompareView = BaseView.extend({
 
@@ -26,7 +25,6 @@ var CompareView = BaseView.extend({
     'change #toggle-hydrogen': 'handleParametersChange',
     'change .config-dropdown': 'handleDropdown',
     'click #oil-details-share': 'handleShare',
-    'click .carosel-arrow': 'handleCarosel',
     'click .compare': 'openCompare'
   },
 
@@ -113,67 +111,12 @@ var CompareView = BaseView.extend({
       comparisonOil: this.comparisonOil,
       // separate key so we can leave the above one blank for groups
       comparisonOilName: comparisonOilName,
-      totalUnits: utils.getUnits('ghgTotal', 'perBarrel'),
-      suggestedOils: (Oci.relatedOils[this.oilKey] || []),
-      relatedOils: (Oci.relatedOils[this.oilKey] && Oci.relatedOils[this.oilKey].map(function (oil) {
-        var d = Oci.data.info[oil];
-        if (d) {
-          return utils.createTooltipHtml(
-            d.Unique,
-            d['Overall Crude Category'],
-            [
-              {
-                name: 'GHG Emissions',
-                value: utils.numberWithCommas(d['Total Emissions']),
-                units: utils.getUnits('ghgTotal', 'perBarrel')
-              },
-              {
-                name: 'Current Production',
-                value: utils.numberWithCommas(d['Oil Production Volume']),
-                units: utils.getUnits('productionVolume')
-              },
-              {
-                name: 'Estimated GHG Emission Rate',
-                value: utils.numberWithCommas(Number(d['Total Emissions']) * Number(d['Oil Production Volume']) * 365 / (1000 * 1000000)),
-                units: utils.getUnits('emissionRate')
-              }
-            ],
-            utils.makeId(d.Unique),
-            '',
-            d['Absolute Emissions Icons']
-          );
-        } else {
-          return '';
-        }
-      }) || [])
+      totalUnits: utils.getUnits('ghgTotal', 'perBarrel')
     }));
 
     this.modelParametersView = new ModelParameters();
     this.$('#model-parameters').html(this.modelParametersView.render());
     this.listenTo(this.modelParametersView, 'sliderUpdate', this.handleParametersChange);
-
-    Oci.data.metadata.refinery.split(', ').forEach(function (refinery, index) {
-      // remove any refinery options the original oil doesn't have available
-      if (Number(Oci.data.info[self.oil.Unique]['Refinery exception']) === index) {
-        $('#dropdown-refinery option[value="' + refinery + '"]').hide();
-      }
-      if (self.comparisonOil) {
-        // remove any refinery options the comparison oil doesn't have available
-        if (Number(Oci.data.info[self.comparisonOil.Unique]['Refinery exception']) === index) {
-          $('#dropdown-refinery option[value="' + refinery + '"]').hide();
-        }
-      } else {
-        // check all group oils for their refinery
-        _.filter(Oci.data.info, function (o) {
-          return (o['Region'] === comparisonOilName ||
-            o['Overall Crude Category'] === comparisonOilName);
-        }).forEach(function (o) {
-          if (Number(Oci.data.info[o.Unique]['Refinery exception']) === index) {
-            $('#dropdown-refinery option[value="' + refinery + '"]').hide();
-          }
-        });
-      }
-    });
 
     // Determine bar heights
     this.comparisonModelHeight = (this.height - this.barBuffer) * (1 / 2);
@@ -246,29 +189,6 @@ var CompareView = BaseView.extend({
          return self.xScale(self.dataForSvg(svg, d));
        });
 
-    // Create small bars to indicate components
-    var x0Oil = 0;
-    var components = this.chartData[1].components[self.getStepName(svg)];
-    svg.selectAll('.oilComponent')
-       .data(components)
-       .transition()
-       .duration(1000)
-       .attr('x', function (d) {
-         x0Oil += +d.value;
-         return self.xScale(x0Oil);
-       });
-
-    var x0ComparisonOil = 0;
-    var comparisonComponents = this.chartData[0].components[self.getStepName(svg)];
-    svg.selectAll('.comparisonOilComponent')
-       .data(comparisonComponents)
-       .transition()
-       .duration(1000)
-       .attr('x', function (d) {
-         x0ComparisonOil += +d.value;
-         return self.xScale(x0ComparisonOil);
-       });
-
     // add text to show differences between the bars
     var diffData = {
       upstream: (this.chartData[1].upstream - this.chartData[0].upstream) / this.chartData[0].upstream,
@@ -298,31 +218,25 @@ var CompareView = BaseView.extend({
     var params = this.modelParametersView.getModelValues();
 
     // if we don't have the necessary data, load it
-    var opgeeRun = utils.getOPGEEModel(params.methane, params.gwp, params.fugitives, params.venting, params.water, params.flaring, params.solarsteam);
-    var prelimRun = utils.getPRELIMModel(params.gwp, params.hydrogen, params.refinery, params.lpg, params.methane);
-    if (!Oci.Collections.opgee.get(opgeeRun)) {
-      var opgeeModel = new OpgeeModel({ id: opgeeRun });
-      opgeeModel.fetch({ async: false, success: function (data) {
-        Oci.Collections.opgee.add(data);
-      }});
-    }
+    var run = utils.getModel(params);
 
-    if (!Oci.Collections.prelim.get(prelimRun)) {
-      var prelimModel = new PrelimModel({ id: prelimRun });
-      prelimModel.fetch({ async: false, success: function (data) {
-        Oci.Collections.prelim.add(data);
+    if (!Oci.Collections.runs.get(run)) {
+      var model = new RunModel({ id: run });
+      model.fetch({ async: false, success: function (data) {
+        Oci.Collections.runs.add(data);
       }});
     }
 
     var modelData = {
       info: Oci.data.info,
-      opgee: Oci.Collections.opgee.get(opgeeRun).toJSON(),
-      prelim: Oci.Collections.prelim.get(prelimRun).toJSON()
+      oilValues: Oci.Collections.runs.get(run).toJSON()
     };
 
+    const carbonMultiplier = this.showCarbon ? Oci.carbonTax / 1000 : 1;
+
     this.chartData = [
-      utils.generateOilObject(this.comparisonOilKey, modelData, params.showCoke, true),
-      utils.generateOilObject(this.oilKey, modelData, params.showCoke, false)
+      utils.generateOilObject(this.comparisonOilKey, modelData, true, carbonMultiplier),
+      utils.generateOilObject(this.oilKey, modelData, false, carbonMultiplier)
     ];
     $('#model-total').html(this.chartData[1].ghgTotal.toFixed(0));
     $('#comparison-model-total').html(this.chartData[0].ghgTotal.toFixed(0));
@@ -412,52 +326,6 @@ var CompareView = BaseView.extend({
          }
        });
 
-    // Create small bars to indicate components if everything is positive
-    var components = this.chartData[1].components[this.getStepName(svg)];
-    var comparisonComponents = this.chartData[0].components[this.getStepName(svg)];
-    var allPositive = _.every(components.concat(comparisonComponents),
-      function (component) {
-        return +component.value >= 0;
-      }
-    );
-    if (allPositive) {
-      var x0Oil = 0;
-      svg.selectAll('.oilComponent')
-         .data(components)
-         .enter()
-         .append('rect')
-         .attr('class', 'oilComponent')
-         .attr('pointer-events', 'none')
-         .attr('x', function (d) {
-           x0Oil += +d.value;
-           return self.xScale(x0Oil);
-         })
-         .attr('y', 0)
-         .attr('width', self.xScale(0.25))
-         .attr('height', self.modelHeight)
-         .attr('rx', 2)
-         .attr('ry', 2)
-         .attr('fill', '#fff');
-
-      var x0ComparisonOil = 0;
-      svg.selectAll('.comparisonOilComponent')
-         .data(comparisonComponents)
-         .enter()
-         .append('rect')
-         .attr('class', 'comparisonOilComponent')
-         .attr('pointer-events', 'none')
-         .attr('x', function (d) {
-           x0ComparisonOil += +d.value;
-           return self.xScale(x0ComparisonOil);
-         })
-         .attr('y', function (d) { return self.modelHeight + self.barBuffer; })
-         .attr('width', self.xScale(0.25))
-         .attr('height', self.modelHeight)
-         .attr('rx', 2)
-         .attr('ry', 2)
-         .attr('fill', '#fff');
-    }
-
     // add text to show differences between the bars
     var diffData = {
       upstream: (this.chartData[1].upstream - this.chartData[0].upstream) / this.chartData[0].upstream,
@@ -542,23 +410,6 @@ var CompareView = BaseView.extend({
 
   handleShare: function (e) {
     e.preventDefault();
-  },
-
-  handleCarosel: function (e) {
-    var increment = $(e.currentTarget).hasClass('forward') ? 1 : -1;
-    var currentOffset;
-    var $carosel = $(e.currentTarget).parent().find('.carosel');
-    var $arrows = $('.carosel-arrow');
-
-    [0, 1, 2, 3, 4].forEach(function (offset) {
-      if ($carosel.hasClass('offset-' + offset)) {
-        currentOffset = offset;
-      }
-    });
-    $carosel.removeClass('offset-' + currentOffset);
-    $arrows.removeClass('offset-' + currentOffset);
-    $carosel.addClass('offset-' + (Number(currentOffset) + increment));
-    $arrows.addClass('offset-' + (Number(currentOffset) + increment));
   },
 
   openCompare: function (e) {

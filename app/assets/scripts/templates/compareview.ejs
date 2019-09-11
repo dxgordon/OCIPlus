@@ -23,14 +23,6 @@
               <input type="search" placeholder="Enter oil name or type of oil" name="">
               <div class="search-results"></div>
             </form>
-            <div class="suggestions-dropdown-compare">
-              <h5 class="header-condensed">Suggestions</h5>
-              <ul>
-                <% suggestedOils.forEach(function (o) { %>
-                  <li class="list-element-small"><a href="#compare/<%= utils.makeId(oil.name) %>/<%= utils.makeId(o) %>"><%= o %></a></li>
-                <% }) %>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -128,18 +120,4 @@
       </div>
     </section>
   <!--/ chart-section -->
-  <section class="section-callout section-content related-oils">
-    <div class="row">
-      <h3 class="section-callout__header">Related Oils</h3>
-      <span class="carosel-arrow backward offset-0"></span>
-      <span class="carosel-arrow forward offset-0"></span>
-      <div class="carosel offset-0">
-        <div class="inner-carosel">
-          <% relatedOils.forEach(function (oil) { %>
-            <%= oil %>
-          <% }) %>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>

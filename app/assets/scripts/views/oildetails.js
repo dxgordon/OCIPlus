@@ -96,7 +96,7 @@ var OilDetails = BaseView.extend({
       description: (Oci.blurbs[this.oilKey] || {}).description,
       chartTitle: this.showCarbon ? utils.getDatasetName('carbonFee') : utils.getDatasetName('ghgTotal'),
       icons: Oci.data.info[this.oilKey]['Emissons Drivers'],
-      suggestedOils: (Oci.relatedOils[this.oilKey] || [])
+      suggestedOils: []
     }));
 
     this.modelParametersView = new ModelParameters();
