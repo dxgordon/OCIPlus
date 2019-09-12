@@ -1,6 +1,6 @@
-# Oil Climate Index Plus Gas Preview
+# Oil Climate Index + Gas Preview
 
-Preview of the updated web tool for Oil Climate Index Plus Gas launched in 2019.
+Preview of the updated web tool for Oil Climate Index + Gas launched in 2019.
 
 ## Site Updates
 
