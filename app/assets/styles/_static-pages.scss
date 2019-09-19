@@ -43,7 +43,11 @@ ul.oiltype-legend {
 
 /* temporary css for static pages */
 
-#methodology-view { position: relative; }
+#methodology-view {
+  position: relative;
+  .row { position: relative; }
+}
+
 .doc-nav, .doc-nav li { list-style:none;}
 
 .doc-nav {
@@ -112,9 +116,16 @@ ul.oiltype-legend {
   }
   td {
     border: 1px solid $gray-medium;
-    padding: 0.5rem;
+    padding: 0.3rem;
   }
+  tr:nth-child(even) { background-color: #f2f2f2; }
   margin-bottom: 1rem;
+}
+
+.classification-bounds-column {
+  display: inline-block;
+  &.cbc-1 { width: 60% }
+  &.cbc-2 { margin-left: 5%; width: 35% }
 }
 
 .prose.prose-content .contentImg.headshot {
