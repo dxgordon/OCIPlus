@@ -17,7 +17,7 @@ const allKeys = {
   leakage: { key: 'Methane Leakage Rate tonnes methane per tonnes wellbore gas', name: 'Methane Leakage Rate', units: 'tonnes methane per tonnes wellbore gas' },
   heatingValue: { key: 'Heating Value Processed Oil and Gas', name: 'Heating Value Processed Oil and Gas', units: 'MJ/BOE' },
   years: { key: 'Years in Production', name: 'Years in Production', units: 'years' },
-  depth: { key: 'Depth', name: 'Depth', units: 'feet' },
+  depth: { key: 'Depth  Feet', name: 'Depth', units: 'feet' },
   wells: { key: 'Number of Producing Wells', name: 'Number of Producing Wells', units: '' },
   gasRatio: { key: 'Gas-to-Oil Ratio', name: 'Gas-to-Oil Ratio', units: '' },
   flaringRatio: { key: 'Flaring-to-Oil Ratio', name: 'Flaring-to-Oil Ratio', units: '' },
