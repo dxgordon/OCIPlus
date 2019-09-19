@@ -142,7 +142,7 @@
       <li>Viscosity (cST at 100 °C) for vacuum residuum</li>
       </ul>
       <p>The temperature cuts and products currently used in the PRELIM refining model are:</p>
-      <table id="temperature-cuts" class="data-table full-width">
+      <table id="temperature-cuts">
         <thead>
           <tr>
             <td>TEMP</td>
@@ -395,6 +395,177 @@ adjust emissions variables are included in the web tool workbook.</p>
           <li>Natural gas power</li>
           <li>Liquefaction</li>
       </ul>
+      <h3>Classification Bounds:</h3>
+      <p>The following classifications bounds were uses in categorizing oil and gas in the OCI<sup>+</sup> Preview. These boundaries may change in future OCI<sup>+</sup> analyses.</p>
+      <div class="classification-bounds-column cbc1">
+        <table>
+          <thead><tr><th colspan=2>API Crude Category (API)</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Extra-Heavy Oil</td></tr>
+           <tr><td>14.99</td><td>Heavy Oil</td></tr>
+           <tr><td>21.99</td><td>Medium Oil</td></tr>
+           <tr><td>31.99</td><td>Light Oil</td></tr>
+           <tr><td>41.99</td><td>Ultra-Light Oil</td></tr>
+           <tr><td>50.99</td><td>Condensate</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Gas Category</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Dry Gas</td></tr>
+           <tr><td>15</td><td>Wet Gas</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Sulfur (S %wt)</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>-100.00</td><td>Sweet</td></tr>
+           <tr><td>0.50</td><td>Sour</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Gas Sulfur %vol</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>-100</td><td>Sweet</td></tr>
+           <tr><td>2</td><td>Sour</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Production Volume</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Very Low</td></tr>
+           <tr><td>2500</td><td>Low</td></tr>
+           <tr><td>25000</td><td>Medium</td></tr>
+           <tr><td>250000</td><td>High</td></tr>
+           <tr><td>2500000</td><td>Very High</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Depth (ft.)</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Shallow</td></tr>
+           <tr><td>7000</td><td>Deep</td></tr>
+           <tr><td>11000</td><td>Ultra-Deep</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Flaring-to-Oil Ratio (scf/bbl oil)</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Minimal Flare</td></tr>
+           <tr><td>50</td><td>Low Flare</td></tr>
+           <tr><td>500</td><td>High Flare</td></tr>
+           <tr><td>1000</td><td>Ultra High Flare</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Watery Oil: Water-to-Oil Ratio (bbl water/bbl oil)</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Low</td></tr>
+           <tr><td>4</td><td>High</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan=2>Gassy Oil : Gas-to-Oil Ratio (scf/bbl oil)</th></tr></thead><tbody>
+           <tr><td>Lower Bound</td><td>Classification</td></tr>
+           <tr><td>0</td><td>Very Low Gas</td></tr>
+           <tr><td>100</td><td>Low Gas</td></tr>
+           <tr><td>1000</td><td>Medium Gas</td></tr>
+           <tr><td>10000</td><td>High Gas</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="classification-bounds-column cbc-2">
+        <table>
+          <thead><tr><th colspan=2>Crude Oil Heating Values</th></tr></thead><tbody>
+           <tr><td>Deg API</td><td>LHV - MJ/bbl</td></tr>
+           <tr><td>4</td><td>6524.9876475</td></tr>
+           <tr><td>5</td><td>6507.7058466</td></tr>
+           <tr><td>6</td><td>6484.6634454</td></tr>
+           <tr><td>7</td><td>6460.2916749</td></tr>
+           <tr><td>8</td><td>6436.8061506</td></tr>
+           <tr><td>9</td><td>6411.991257</td></tr>
+           <tr><td>10</td><td>6380.97264</td></tr>
+           <tr><td>11</td><td>6354.8283771</td></tr>
+           <tr><td>12</td><td>6324.2528832</td></tr>
+           <tr><td>13</td><td>6293.6773893</td></tr>
+           <tr><td>14</td><td>6267.5331264</td></tr>
+           <tr><td>15</td><td>6236.9576325</td></tr>
+           <tr><td>16</td><td>6210.8133696</td></tr>
+           <tr><td>17</td><td>6180.2378757</td></tr>
+           <tr><td>18</td><td>6150.1055049</td></tr>
+           <tr><td>19</td><td>6123.5181189</td></tr>
+           <tr><td>20</td><td>6093.3857481</td></tr>
+           <tr><td>21</td><td>6066.7983621</td></tr>
+           <tr><td>22</td><td>6036.6659913</td></tr>
+           <tr><td>23</td><td>6010.5217284</td></tr>
+           <tr><td>24</td><td>5983.9343424</td></tr>
+           <tr><td>25</td><td>5953.3588485</td></tr>
+           <tr><td>26</td><td>5927.2145856</td></tr>
+           <tr><td>27</td><td>5901.0703227</td></tr>
+           <tr><td>28</td><td>5874.9260598</td></tr>
+           <tr><td>29</td><td>5844.3505659</td></tr>
+           <tr><td>30</td><td>5818.206303</td></tr>
+           <tr><td>31</td><td>5792.0620401</td></tr>
+           <tr><td>32</td><td>5765.9177772</td></tr>
+           <tr><td>33</td><td>5739.7735143</td></tr>
+           <tr><td>34</td><td>5713.6292514</td></tr>
+           <tr><td>35</td><td>5687.4849885</td></tr>
+           <tr><td>36</td><td>5652.4782636</td></tr>
+           <tr><td>37</td><td>5634.7533396</td></tr>
+           <tr><td>38</td><td>5608.6090767</td></tr>
+           <tr><td>39</td><td>5582.4648138</td></tr>
+           <tr><td>40</td><td>5556.3205509</td></tr>
+           <tr><td>41</td><td>5530.176288</td></tr>
+           <tr><td>42</td><td>5508.4632561</td></tr>
+           <tr><td>43</td><td>5482.3189932</td></tr>
+           <tr><td>44</td><td>5455.7316072</td></tr>
+           <tr><td>45</td><td>5429.5873443</td></tr>
+           <tr><td>46</td><td>5489.81291035156</td></tr>
+           <tr><td>47</td><td>5469.85178093537</td></tr>
+           <tr><td>48</td><td>5457.9271404096</td></tr>
+           <tr><td>50</td><td>5395.52938712224</td></tr>
+           <tr><td>61</td><td>5131.67462166211</td></tr>
+           <tr><td>68</td><td>4949.35642166358</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <table>
+        <thead><tr><th colspan=2>Gas Production Volume (scf?)</th></tr></thead><tbody>
+         <tr><td>Lower Bound</td><td>Classification</td></tr>
+         <tr><td>0</td><td>Very Low</td></tr>
+         <tr><td>1234</td><td>Low</td></tr>
+         <tr><td>5678</td><td>Medium</td></tr>
+         <tr><td>91011</td><td>High</td></tr>
+         <tr><td>121314</td><td>Very High</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th colspan=2>Flaring-to-Gas Ratio (scf gas flared/scf gas produced)</th></tr></thead><tbody>
+         <tr><td>Lower Bound</td><td>Classification</td></tr>
+         <tr><td>0</td><td>Minimal Flare</td></tr>
+         <tr><td>1</td><td>Low Flare</td></tr>
+         <tr><td>2</td><td>High Flare</td></tr>
+         <tr><td>3</td><td>Ultra High Flare</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th colspan=2>Water-to-Gas Ratio (bbl water/scf gas)</th></tr></thead><tbody>
+         <tr><td>Lower Bound</td><td>Classification</td></tr>
+         <tr><td>0</td><td>Low</td></tr>
+         <tr><td>1</td><td>High</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th colspan=2>Methane Leakeage Rate</th></tr></thead><tbody>
+         <tr><td>Low</td><td>&lt; 1.4%</td></tr>
+         <tr><td>Medium</td><td>1.4%-2.3%</td></tr>
+         <tr><td>High</td><td>2.3%-3%</td></tr>
+         <tr><td>Very high</td><td>&gt; 3%</td></tr>
+        </tbody>
+      </table>
+      <p>Source: API &lt; 46 Schmidt (1985) Fuel Oil Manual, API &gt; 45 John Jechura (2016) <a href="http://inside.mines.edu/~jjechura/Refining/02_Feedstocks_&_Products.pdf" target="_blank">http://inside.mines.edu/~jjechura/Refining/02_Feedstocks_&_Products.pdf</a>. Note(s): Correlations relating crude oil energy density as a function of API gravity. For API &gt; 45, the function from slide 102 of Jechura was converted from Btu/lb using the density of the OCI crudes with the respective gravities, which you can find on the "PRELIM Crude Oil Assays" tab.</p>
+      <p>Source: <a href="http://theconversation.com/the-us-natural-gas-industry-is-leaking-way-more-methane-than-previously-thought-heres-why-that-matters-98918">http://theconversation.com/the-us-natural-gas-industry-is-leaking-way-more-methane-than-previously-thought-heres-why-that-matters-98918</a></p>
+
       <h3>User-Defined Sliders</h3>
         <p>Emissions drivers are derived from operating decisions that can affect an oil’s and/or a gas’ GHG emissions. The web tool allows users to alter model parameters for steam production, gas liquefaction, flaring intensity, venting intensity, fugitives intensity, and renewable hydrogen, using sliders on the Supply Chain and View Details pages. Steam, flaring, venting, and fugitives sliders alter relevant OPGEE inputs, while steam, gas liquefaction, and renewable hydrogen alter PRELIM inputs. The petcoke slider also alters OPEM outputs.</p>
         <p>Note on the venting, flaring, and fugitives sliders: The venting, flaring, and fugitives sliders are not linked—for example, adjustments made to the venting slider do not affect the fugitive slider, and vice versa. This implies that a volume of gas handled at a field is not fixed. In this way, these sliders can be combined to represent a worst-case scenario, in which venting and fugitive emissions are additive.</p>
@@ -574,13 +745,6 @@ adjust emissions variables are included in the web tool workbook.</p>
           <li>Update land-use inputs in OPGEE model to reflect up-to-date knowledge, especially for oils in climate-sensitive ecosystems such as the Arctic and forests</li>
           <li>Build functionality for comparisons among more than two oils</li>
         </ul>
-        <h3>Classification Bounds:</h3>
-        <p>The following classifications bounds were uses in categorizing oil and gas in the OCI<sup>+</sup> Preview. These boundaries may change in future OCI<sup>+</sup> analyses.</p>
-        <img src="assets/images/content/class-1.png" />
-        <img src="assets/images/content/class-2.png" />
-        <p>Source: API &lt; 46 Schmidt (1985) Fuel Oil Manual, API &gt; 45 John Jechura (2016) <a href="http://inside.mines.edu/~jjechura/Refining/02_Feedstocks_&_Products.pdf" target="_blank">http://inside.mines.edu/~jjechura/Refining/02_Feedstocks_&_Products.pdf</a>. Note(s): Correlations relating crude oil energy density as a function of API gravity. For API &gt; 45, the function from slide 102 of Jechura was converted from Btu/lb using the density of the OCI crudes with the respective gravities, which you can find on the "PRELIM Crude Oil Assays" tab.</p>
-        <img src="assets/images/content/class-3.png" />
-        <p>Source: <a href="http://theconversation.com/the-us-natural-gas-industry-is-leaking-way-more-methane-than-previously-thought-heres-why-that-matters-98918">http://theconversation.com/the-us-natural-gas-industry-is-leaking-way-more-methane-than-previously-thought-heres-why-that-matters-98918</a></p>
         <ol>
             <li id="footnote-1">
                 <p> Deborah Gordon, Adam Brandt, Joule Bergerson, Jonathan Koomey, “Know Your Oil,” Carnegie Endowment for International Peace, March 2015, <a
