@@ -400,6 +400,7 @@ var EmissionsDrivers = BaseView.extend({
         name: utils.prettyOilName(oil),
         type: oil['Resource Type'].trim(),
         ghgTotal: +oil[`gwp${gwp}`][utils.getDatasetKey('ghgTotal')],
+        crudeProductionVolume: +oil[utils.getDatasetKey('crudeProductionVolume')],
         productionVolume: +oil[utils.getDatasetKey('productionVolume')],
         ghgPerMJ: +oil[`gwp${gwp}`][utils.getDatasetKey('ghgPerMJ')],
         upstream: +oil[`gwp${gwp}`][utils.getDatasetKey('upstream')],

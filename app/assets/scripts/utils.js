@@ -43,7 +43,8 @@ const allKeys = {
   carbonFee10: { key: '$10 per tonne Carbon Fee Total GHG Emissions', name: '$10 per tonne Carbon Fee Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
   carbonFee: { key: 'Carbon Fee on Total GHG Emissions', name: 'Carbon Fee on Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
   carbonFee40: { key: '$40 per tonne Carbon Fee Total GHG Emissions', name: '$40 per tonne Carbon Fee Total GHG Emissions', units: '$/Barrel Oil Equivalent' },
-  productionVolume: { key: '2017 Total Oil and Gas Production Volume ', name: '2017 Total Oil and Gas Production Volume', units: 'barrel oil equivalent' },
+  productionVolume: { key: '2017 Total Oil and Gas Production Volume', name: '2017 Total Processed Oil, NGLs, and Gas Production Volume', units: 'BOE per day' },
+  crudeProductionVolume: { key: '2017 Crude Production Volume', name: '2017 Crude Production Volume', units: 'Barrels per day' },
   emissionRate: { units: 'million metric tons CO\u2082 eq./year' }
 };
 
