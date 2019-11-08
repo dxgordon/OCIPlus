@@ -539,7 +539,7 @@ var utils = {
         },
         {
           key: 'Production Volume',
-          value: this.numberWithCommas(oil['2017 Total Oil and Gas Production Volume '])
+          value: this.numberWithCommas(oil['2017 Total Oil and Gas Production Volume'])
         },
         {
           key: 'Flare Rate',
