@@ -18,7 +18,11 @@ To set up the development environment for this website, you'll need to install t
 After these basic requirements are met, run the following commands in the website's folder:
 ```
 $ npm install
+```
 
+First-time setup also requires the data to be processed:
+```
+npm run data && npm run precalc
 ```
 
 ### Commands
