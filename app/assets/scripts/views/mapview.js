@@ -61,29 +61,27 @@ var MapView = BaseView.extend({
     var northEast = L.latLng(90, 250);
     var bounds = L.latLngBounds(southWest, northEast);
 
-    L.mapbox.accessToken = 'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJnUi1mbkVvIn0.018aLhX0Mb0tdtaT2QNe2Q';
+    L.mapbox.accessToken = 'pk.eyJ1IjoiY2FybmVnaWVjb21tcyIsImEiOiJ6c1ByOG1rIn0.AW_xUTtuDKJuvRtaNSiwrg';
     this.flaringLayers = {
-      '2012': L.mapbox.tileLayer('carnegiecomms.9c2f044c'),
-      '2013': L.mapbox.tileLayer('carnegiecomms.9e285c3e'),
-      '2014': L.mapbox.tileLayer('carnegiecomms.1d1c0ebe'),
-      '2017': L.mapbox.tileLayer('carnegiecomms.0de7b5ba'),
+      '2012': L.mapbox.styleLayer('mapbox://styles/carnegiecomms/ckhuw5xdk02vl19nv1qxci7n4'),
+      '2013': L.mapbox.styleLayer('mapbox://styles/carnegiecomms/ckhuw5tnl02y019obsvolarn1'),
+      '2014': L.mapbox.styleLayer('mapbox://styles/carnegiecomms/ckhuvtzub02ly19o4o8s8f34f'),
+      '2017': L.mapbox.styleLayer('mapbox://styles/carnegiecomms/ckhuvt49b02kx19nu06mvebz7'),
       'off': null
     };
     this.methaneLayers = {
-      'methane': L.mapbox.tileLayer('carnegiecomms.36832a60')
+      'methane': L.mapbox.styleLayer('mapbox://styles/carnegiecomms/ckhuwjije03aw19pl1ra0fp8v')
     };
-    var map = L.mapbox.map(
-      'map',
-      'carnegiecomms.34955fec',
+    var map = L.mapbox.map('map')
+      .setView([30, 0], 2);
+
+    L.mapbox.styleLayer('mapbox://styles/carnegiecomms/ckhpdh92200bu19o62eokr5jk',
       {
         zoomControl: false,
         scrollWheelZoom: false,
         maxBounds: bounds,
         maxZoom: 18
-      }
-    )
-      .addLayer(this.flaringLayers['2014'])
-      .setView([30, 0], 2);
+      }).addTo(map);
 
     new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
     this.map = map;
