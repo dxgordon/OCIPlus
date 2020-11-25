@@ -60,9 +60,9 @@ var HomePage = BaseView.extend({
     };
     this.charts.fakeMap.draw = function () {
       // use mapbox static api to fill in the background
-      var token = 'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJnUi1mbkVvIn0.018aLhX0Mb0tdtaT2QNe2Q';
-      var url = 'https://api.mapbox.com/v4/devseed.f5a0e5c3/0,20,2/' +
-        this.width + 'x' + this.height + '.png?access_token=' + token;
+      var token = 'pk.eyJ1IjoiY2FybmVnaWVjb21tcyIsImEiOiJ6c1ByOG1rIn0.AW_xUTtuDKJuvRtaNSiwrg'
+      var url = 'https://api.mapbox.com/styles/v1/carnegiecomms/ckhpdh92200bu19o62eokr5jk/static/0,20,2,0/' +
+        this.width + 'x' + this.height + '?access_token=' + token;
       $(this.el).css('background-image', 'url(' + url + ')');
 
       var graph = this;
